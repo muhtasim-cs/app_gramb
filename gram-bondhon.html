@@ -1,0 +1,1046 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      name="viewport"
+    />
+    <title>GRAM-BONDHON | Rooted Innovation for Rural Growth</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#1c1c17",
+              "primary-container": "#2d6a4f",
+              secondary: "#565e74",
+              "on-primary": "#ffffff",
+              "surface-tint": "#2c694e",
+              "surface-bright": "#fcf9f1",
+              "on-error": "#ffffff",
+              "surface-container": "#f1eee6",
+              "tertiary-fixed-dim": "#c5c9a7",
+              "tertiary-container": "#5d6246",
+              "surface-container-highest": "#e5e2db",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#ebe8e0",
+              error: "#ba1a1a",
+              "on-primary-container": "#a8e7c5",
+              primary: "#0f5238",
+              "primary-fixed-dim": "#95d4b3",
+              "inverse-surface": "#31312c",
+              outline: "#707973",
+              "on-surface-variant": "#404943",
+              "surface-dim": "#dcdad2",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#dae2fd",
+              "primary-fixed": "#b1f0ce",
+              "on-tertiary-container": "#d9ddba",
+              "inverse-primary": "#95d4b3",
+              "surface-container-low": "#f6f3eb",
+              "surface-variant": "#e5e2db",
+              "on-surface": "#1c1c17",
+              "outline-variant": "#bfc9c1",
+              "error-container": "#ffdad6",
+              surface: "#fcf9f1",
+              "tertiary-fixed": "#e1e6c2",
+              tertiary: "#464a30",
+              "inverse-on-surface": "#f3f1e9",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#5c647a",
+              background: "#fcf9f1",
+              "on-tertiary-fixed": "#1a1d07",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #fcf9f1;
+        color: #1c1c17;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-nav {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+      .hero-overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(15, 82, 56, 0.35) 60%,
+          rgba(15, 82, 56, 0.85) 100%
+        );
+      }
+      /* Smooth mobile menu */
+      #mobile-menu {
+        transition:
+          max-height 350ms ease,
+          opacity 250ms ease;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      #mobile-menu.open {
+        max-height: 360px;
+        opacity: 1;
+      }
+      /* Progress bar animation */
+      .progress-bar {
+        transition: width 1.2s ease;
+      }
+      /* Card hover lift */
+      .invest-card {
+        transition:
+          transform 250ms ease,
+          box-shadow 250ms ease;
+      }
+      .invest-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(15, 82, 56, 0.12);
+      }
+      /* Safe area bottom padding */
+      .safe-bottom {
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+      }
+    </style>
+  </head>
+  <body class="antialiased overflow-x-hidden">
+    <!-- ─── TOP NAV ─── -->
+    <nav
+      class="fixed top-0 w-full z-50 glass-nav bg-white/80 border-b border-emerald-100/40 shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center h-16 px-4 max-w-screen-xl mx-auto"
+      >
+        <!-- Logo -->
+        <a
+          class="text-base font-black tracking-tight text-emerald-900 shrink-0"
+          href="#"
+          >GRAM-BONDHON</a
+        >
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a
+            class="text-emerald-700 border-b-2 border-emerald-700 pb-0.5 font-bold text-sm"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-emerald-900/60 hover:text-emerald-900 transition font-semibold text-sm"
+            href="#"
+            >Marketplace</a
+          >
+          <a
+            class="text-emerald-900/60 hover:text-emerald-900 transition font-semibold text-sm"
+            href="#"
+            >Projects</a
+          >
+          <a
+            class="text-emerald-900/60 hover:text-emerald-900 transition font-semibold text-sm"
+            href="#"
+            >Hiring</a
+          >
+          <a
+            class="text-emerald-900/60 hover:text-emerald-900 transition font-semibold text-sm"
+            href="#"
+            >Impact</a
+          >
+        </div>
+
+        <!-- Desktop actions -->
+        <div class="hidden md:flex items-center gap-3">
+          <button
+            class="px-4 py-2 text-emerald-900 font-semibold text-sm hover:bg-emerald-50 rounded-lg transition"
+          >
+            Login
+          </button>
+          <button
+            class="px-5 py-2 bg-emerald-800 text-white font-bold text-sm rounded-full shadow hover:bg-primary-container transition"
+          >
+            Sign Up
+          </button>
+        </div>
+
+        <!-- Mobile right: Sign up + Hamburger -->
+        <div class="flex md:hidden items-center gap-2">
+          <button
+            class="px-4 py-2 bg-emerald-800 text-white font-bold text-xs rounded-full shadow"
+          >
+            Sign Up
+          </button>
+          <button
+            id="menu-btn"
+            aria-label="Open menu"
+            aria-expanded="false"
+            class="w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xl bg-emerald-50 active:scale-95 transition"
+          >
+            <span
+              id="bar1"
+              class="block w-5 h-0.5 bg-emerald-900 rounded transition-all duration-300"
+            ></span>
+            <span
+              id="bar2"
+              class="block w-5 h-0.5 bg-emerald-900 rounded transition-all duration-300"
+            ></span>
+            <span
+              id="bar3"
+              class="block w-3.5 h-0.5 bg-emerald-900 rounded transition-all duration-300"
+            ></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu dropdown -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-white/95 border-t border-emerald-100 px-4"
+      >
+        <div class="py-4 flex flex-col gap-1">
+          <a
+            href="#"
+            class="py-3 px-4 rounded-xl font-bold text-emerald-700 bg-emerald-50 text-sm"
+            >Home</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 rounded-xl font-semibold text-emerald-900/70 hover:bg-emerald-50 text-sm transition"
+            >Marketplace</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 rounded-xl font-semibold text-emerald-900/70 hover:bg-emerald-50 text-sm transition"
+            >Projects</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 rounded-xl font-semibold text-emerald-900/70 hover:bg-emerald-50 text-sm transition"
+            >Hiring</a
+          >
+          <a
+            href="#"
+            class="py-3 px-4 rounded-xl font-semibold text-emerald-900/70 hover:bg-emerald-50 text-sm transition"
+            >Impact</a
+          >
+          <div class="flex gap-3 pt-3 border-t border-emerald-100 mt-2">
+            <button
+              class="flex-1 py-2.5 border border-emerald-200 text-emerald-900 font-bold text-sm rounded-xl"
+            >
+              Login
+            </button>
+            <button
+              class="flex-1 py-2.5 bg-emerald-800 text-white font-bold text-sm rounded-xl"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── HERO ─── -->
+    <header class="relative w-full overflow-hidden" style="min-height: 100svh">
+      <img
+        class="absolute inset-0 w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuADMxpkzLa2L2_d3vI80sFF5bk1YchzO51zZLKud7Sxrlv4S-_UV7yMCERC7EXqS2-TP2RznqacRUnCcPwjDX8kWSZycKDBbTNNcCPAPKybHsnPxic2SEP9YfQ3D3MsvO9-bvvk7LFDR7-oPyx6ctk3H4gSbJuri9gugLF14zOma-sV_WKMZZ4cSYMbY16HnIR85uEg-BxCqe8iuoGvuINp6OgYfv6WeRRBpZJfRuOAxa33KxF9DNMsxX0zB0esWdkKUB2GpWWleEg"
+        alt="Green agricultural field under bright sky"
+      />
+      <div class="absolute inset-0 hero-overlay"></div>
+
+      <div
+        class="relative z-10 flex flex-col justify-end h-full min-h-screen px-5 pb-14 pt-24 max-w-screen-xl mx-auto"
+      >
+        <div class="max-w-lg">
+          <span
+            class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest rounded-full mb-4"
+            >Rooted Innovation</span
+          >
+          <h1
+            class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-4 drop-shadow-md"
+          >
+            Empowering Rural Growth Through Ethical Investment
+          </h1>
+          <p class="text-white/80 text-base mb-8 leading-relaxed max-w-sm">
+            Connecting conscious urban investors with the heartbeat of the
+            countryside. Transparent, high-impact growth.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button
+              class="w-full sm:w-auto px-7 py-4 bg-emerald-700 text-white font-bold text-base rounded-2xl shadow-lg active:scale-95 transition"
+            >
+              Join as Farmer
+            </button>
+            <button
+              class="w-full sm:w-auto px-7 py-4 bg-white/20 backdrop-blur-sm text-white font-bold text-base rounded-2xl border border-white/40 active:scale-95 transition"
+            >
+              Become an Investor
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── STATS STRIP ─── -->
+    <div class="bg-emerald-900 text-white">
+      <div
+        class="max-w-screen-xl mx-auto px-5 py-6 grid grid-cols-3 divide-x divide-white/15"
+      >
+        <div class="text-center px-3">
+          <p class="text-2xl font-extrabold text-emerald-300">2,400+</p>
+          <p class="text-xs text-white/60 mt-1 font-medium">Farmers Funded</p>
+        </div>
+        <div class="text-center px-3">
+          <p class="text-2xl font-extrabold text-emerald-300">৳18Cr+</p>
+          <p class="text-xs text-white/60 mt-1 font-medium">Total Invested</p>
+        </div>
+        <div class="text-center px-3">
+          <p class="text-2xl font-extrabold text-emerald-300">14.2%</p>
+          <p class="text-xs text-white/60 mt-1 font-medium">Avg. ROI</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── HOW IT WORKS ─── -->
+    <section class="py-16 px-5 max-w-screen-xl mx-auto">
+      <div class="text-center mb-10">
+        <span
+          class="text-emerald-700 font-bold tracking-widest uppercase text-xs"
+          >Step-by-Step</span
+        >
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-on-background mt-2">
+          How Gram-Bondhon Bridges the Gap
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Step 1 -->
+        <div
+          class="bg-surface-container-low p-6 rounded-3xl border border-outline-variant/30 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-4"
+          >
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >agriculture</span
+            >
+          </div>
+          <h3 class="font-bold text-lg text-on-background mb-2">
+            Farmers Create Projects
+          </h3>
+          <p class="text-sm text-on-surface-variant">
+            Verified rural entrepreneurs list their agricultural or artisan
+            business plans.
+          </p>
+        </div>
+        <!-- Step 2 -->
+        <div
+          class="bg-surface-container-low p-6 rounded-3xl border border-outline-variant/30 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-4"
+          >
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >payments</span
+            >
+          </div>
+          <h3 class="font-bold text-lg text-on-background mb-2">
+            Investors Fund Them
+          </h3>
+          <p class="text-sm text-on-surface-variant">
+            Choose from crops, livestock, or fishery bonds — invest from as
+            little as 5,000 BDT.
+          </p>
+        </div>
+        <!-- Step 3 -->
+        <div
+          class="bg-surface-container-low p-6 rounded-3xl border border-outline-variant/30 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-4"
+          >
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >trending_up</span
+            >
+          </div>
+          <h3 class="font-bold text-lg text-on-background mb-2">
+            Profit is Shared
+          </h3>
+          <p class="text-sm text-on-surface-variant">
+            Harvest returns distributed transparently, fostering mutual
+            prosperity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ACTIVE PROJECTS ─── -->
+    <section class="py-16 bg-surface-container-highest/30">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <div class="flex justify-between items-end mb-8">
+          <div>
+            <h2 class="text-2xl font-extrabold text-on-background">
+              Active Investment Bonds
+            </h2>
+            <p class="text-on-surface-variant mt-1 text-sm">
+              Vetted opportunities with ethical standards.
+            </p>
+          </div>
+          <button
+            class="text-primary font-bold flex items-center gap-1 text-sm shrink-0"
+          >
+            View all
+            <span class="material-symbols-outlined text-base leading-none"
+              >arrow_forward</span
+            >
+          </button>
+        </div>
+
+        <!-- Mobile: horizontal scroll; md+: 3 col grid -->
+        <div
+          class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 md:grid md:grid-cols-3 md:overflow-visible"
+        >
+          <!-- Card 1 -->
+          <article
+            class="invest-card bg-white rounded-3xl border border-outline-variant overflow-hidden shadow-sm shrink-0 w-72 snap-start md:w-auto"
+          >
+            <div class="h-44 relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XOJsk__eCMyZm-tnQG13wrYf6SB39fqsyAShGKmQ1UmofNmK4s8psqVjiqFFWS055xWcsy1KnYSYcNyAhYlBbyBa9apt4U9UX1esiM6SNwrRLHP1-6NJmK3tu9LrdX4QfYwW_tz6D0v3yTOW7c7RkFtqmdS2bSYYJDunbeF6ztYdZVMtoVw8wN1pQuKMldbRsdq3XKULStydeIBZ7zEbxLx4KuV1EnXP1APw04WjpryxfSU791hv5Oc9cnrGkB5QVLxRAQNKI8"
+                alt="Rice paddy field"
+              />
+              <div class="absolute top-3 left-3">
+                <span
+                  class="bg-primary/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase backdrop-blur-sm"
+                  >Agriculture</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-1.5 text-outline mb-1.5">
+                <span class="material-symbols-outlined text-sm leading-none"
+                  >location_on</span
+                >
+                <span class="text-xs font-medium uppercase tracking-tight"
+                  >Bogura, Bangladesh</span
+                >
+              </div>
+              <h3 class="font-bold text-base text-on-background mb-3">
+                Monsoon Paddy Cycle
+              </h3>
+              <div class="mb-4">
+                <div class="flex justify-between text-xs font-semibold mb-1.5">
+                  <span class="text-on-surface-variant">Funding Goal</span>
+                  <span class="text-primary font-bold">82%</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-2.5">
+                  <div
+                    class="progress-bar bg-primary h-2.5 rounded-full"
+                    style="width: 82%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="flex justify-between items-center pt-3 border-t border-surface-container"
+              >
+                <div>
+                  <p class="text-[10px] uppercase font-bold text-outline">
+                    Target ROI
+                  </p>
+                  <p class="text-lg font-extrabold text-emerald-900">12.5%</p>
+                </div>
+                <button
+                  class="px-4 py-2 bg-on-background text-white rounded-xl font-bold text-sm hover:bg-primary transition active:scale-95"
+                >
+                  Invest Now
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article
+            class="invest-card bg-white rounded-3xl border border-outline-variant overflow-hidden shadow-sm shrink-0 w-72 snap-start md:w-auto"
+          >
+            <div class="h-44 relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3F4FX7KmpvXR88gY1cmtRDTM9hby4nGJU2PxXO6wSYZORzT4A9Vhf0T1x0QkSQBbQWgitAHxLKg1ufnZsvAsbhtpgDRdCauv8-lXEKRPCNJe2ICnPUJgaGlK67vzKe4TkqJv2MbeZRbHyhvisNYaMeqajCwPWTWz-TKNQkHJKt8acP6f6adxSme5voeoc7C6wntSF3C-IkM68g3E9Z-AwCXMk1uhz9svh4YbNyfdVhemAp_5YmH-j4TNJ2_hPAyog4cqMkr4ehlQ"
+                alt="Sustainable poultry"
+              />
+              <div class="absolute top-3 left-3">
+                <span
+                  class="bg-secondary/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase backdrop-blur-sm"
+                  >Livestock</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-1.5 text-outline mb-1.5">
+                <span class="material-symbols-outlined text-sm leading-none"
+                  >location_on</span
+                >
+                <span class="text-xs font-medium uppercase tracking-tight"
+                  >Narsingdi, Bangladesh</span
+                >
+              </div>
+              <h3 class="font-bold text-base text-on-background mb-3">
+                Sustainable Poultry
+              </h3>
+              <div class="mb-4">
+                <div class="flex justify-between text-xs font-semibold mb-1.5">
+                  <span class="text-on-surface-variant">Funding Goal</span>
+                  <span class="text-primary font-bold">45%</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-2.5">
+                  <div
+                    class="progress-bar bg-primary h-2.5 rounded-full"
+                    style="width: 45%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="flex justify-between items-center pt-3 border-t border-surface-container"
+              >
+                <div>
+                  <p class="text-[10px] uppercase font-bold text-outline">
+                    Target ROI
+                  </p>
+                  <p class="text-lg font-extrabold text-emerald-900">15.0%</p>
+                </div>
+                <button
+                  class="px-4 py-2 bg-on-background text-white rounded-xl font-bold text-sm hover:bg-primary transition active:scale-95"
+                >
+                  Invest Now
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article
+            class="invest-card bg-white rounded-3xl border border-outline-variant overflow-hidden shadow-sm shrink-0 w-72 snap-start md:w-auto"
+          >
+            <div class="h-44 relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzI2DbPCP4ezCvVTLSDKOwqpl4cqlzo90b13bMxZGgLUus-J3M6nFctxQ2hn2LSphr58Z-QC3TC_mpMxcVnlBvtnkU5j5LiKarMAXRxY2BhCPmQeXqE3h84Eq4CeokI_6AwtpoUBLJD1RrIv0Sioy499g2Bgkx_Gh8EqT4FCvjQPDTLi86i-cR4bg3Mvi3TV6C176fFDI51osjrpsFvjflPZL6RTOm8nWgPYwhZTWFw7xJ43OeeEmw3nlzNTxBAdZKyssUdG1DR7E"
+                alt="Bio-fish hatchery"
+              />
+              <div class="absolute top-3 left-3">
+                <span
+                  class="bg-primary-container/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase backdrop-blur-sm"
+                  >Fishery</span
+                >
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-1.5 text-outline mb-1.5">
+                <span class="material-symbols-outlined text-sm leading-none"
+                  >location_on</span
+                >
+                <span class="text-xs font-medium uppercase tracking-tight"
+                  >Sylhet, Bangladesh</span
+                >
+              </div>
+              <h3 class="font-bold text-base text-on-background mb-3">
+                Bio-Fish Hatchery
+              </h3>
+              <div class="mb-4">
+                <div class="flex justify-between text-xs font-semibold mb-1.5">
+                  <span class="text-on-surface-variant">Funding Goal</span>
+                  <span class="text-primary font-bold">100%</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-2.5">
+                  <div
+                    class="progress-bar bg-primary h-2.5 rounded-full"
+                    style="width: 100%"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="flex justify-between items-center pt-3 border-t border-surface-container"
+              >
+                <div>
+                  <p class="text-[10px] uppercase font-bold text-outline">
+                    Target ROI
+                  </p>
+                  <p class="text-lg font-extrabold text-emerald-900">18.2%</p>
+                </div>
+                <span
+                  class="px-4 py-2 bg-emerald-50 text-primary border border-primary rounded-xl font-bold text-xs uppercase"
+                  >Closed</span
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ARTISAN SECTION ─── -->
+    <section class="py-16 overflow-hidden">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <div class="flex flex-col lg:flex-row items-start gap-10">
+          <!-- Images — mobile: side-by-side small, lg: staggered grid -->
+          <div class="w-full lg:w-1/2 grid grid-cols-2 gap-3 shrink-0">
+            <img
+              class="w-full aspect-[3/4] object-cover rounded-3xl shadow-lg"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I-lcZEhlYHYXXNmJe4g5-WXPnSIIGQlSn0Dpb2Zvuy2Sb3QfOqSRtntc389vIUY5yl2YvGcgZm29EJ-yolt3YFsFXW3nlgmkcq3z_Ih5uMoLXT-AJvbo9wNUrVbvFHqXjF_Ok6xVetABGuRjJvf8jplrpyzQoVMK2CEXHand-cnBdIGtHRDZZYn8uywOgzkIrt-l5lvtexPElSzZHY33pztDqv83ZbKjzJLzHLB0MqqrQ89QelGCF55oFrctvdB9xsXKEjdcqaA"
+              alt="Nakshi Kantha tapestry"
+            />
+            <img
+              class="w-full aspect-[3/4] object-cover rounded-3xl shadow-lg mt-8"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5AisnMwM4WqqwyLslJR4OlraBHvkEa0CYn50SGKbfxkW7Y5Qe26GpSs-qoGo3wKCu57hAp6JtAxU33txWidrKvnM0CmTygxn5hMjc2Znn4va4fkR5omJJUVLNciOQfVUVjKdED8gvF1WygmLCeH-GpOsdvOxQVtfBHMiTo_jWUyrwSWXDHpDghgE-xdvEK29vffBvZ6CbBNCrmD7sjJuum5iy_GC4sUDXjiiipIc3Sw9DGZ55S7VASBj8RNdMDYTITI7qK__4Rk"
+              alt="Handcrafted woven baskets"
+            />
+          </div>
+
+          <!-- Text -->
+          <div class="w-full lg:w-1/2">
+            <span
+              class="text-tertiary font-bold tracking-widest uppercase text-xs"
+              >Empowering Artisans</span
+            >
+            <h2
+              class="text-2xl sm:text-3xl font-extrabold text-on-background mt-3 mb-4 leading-tight"
+            >
+              Handcrafted Legacy:<br />Supporting Women Entrepreneurs
+            </h2>
+            <p class="text-base text-on-surface-variant mb-6 leading-relaxed">
+              Gram-Bondhon isn't just about farming. We provide direct
+              marketplace access for women artisans preserving centuries-old
+              traditions. Your investment helps provide fair-trade pricing for
+              Nakshi Kantha, pottery, and woven essentials.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li
+                class="flex items-center gap-3 text-on-background font-semibold text-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary bg-primary-fixed p-1 rounded-full text-base shrink-0"
+                  >check</span
+                >
+                Direct-to-Consumer Marketplace
+              </li>
+              <li
+                class="flex items-center gap-3 text-on-background font-semibold text-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary bg-primary-fixed p-1 rounded-full text-base shrink-0"
+                  >check</span
+                >
+                Micro-grant Investment Pools
+              </li>
+              <li
+                class="flex items-center gap-3 text-on-background font-semibold text-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary bg-primary-fixed p-1 rounded-full text-base shrink-0"
+                  >check</span
+                >
+                Preservation of Cultural Heritage
+              </li>
+            </ul>
+            <button
+              class="w-full sm:w-auto px-7 py-4 bg-on-background text-white font-bold rounded-2xl active:scale-95 transition hover:bg-emerald-950"
+            >
+              Explore Artisan Collective
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="py-16 bg-surface-container-low">
+      <div class="max-w-screen-xl mx-auto px-5">
+        <h2
+          class="text-2xl sm:text-3xl font-extrabold text-on-background mb-10 text-center"
+        >
+          Stories of Shared Prosperity
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <!-- T1 -->
+          <div
+            class="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant"
+          >
+            <div class="flex text-amber-400 mb-4">
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+            </div>
+            <p
+              class="italic text-on-surface-variant text-sm mb-6 leading-relaxed"
+            >
+              "Knowing my capital is helping a farmer in Sylhet buy modern
+              equipment is much more rewarding than just seeing numbers in a
+              bank app."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-11 h-11 rounded-full bg-surface-container-highest overflow-hidden shrink-0"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT4OFNEwF0T3Mq8n6p24v2UHizMyiS6mqn_6h7WugaAqD-GaGHDQI2F7dWzq93pw23JO7Z_BlaIATdIFYPYRumoDoukFm8hcroPfiEJkHvyo0EAEQOAOuUZZdebIAfmzo_b5l64YYauWyzgi3Vm9mCWtwF3pH1Pm8L2KxNMi1n1xExeFupFSW4THJ0eq5H9uq-9XmpQ_OquEUtxVvPR9i1I67Fe7A85fAIsH1tGYZXkwpi2FtZUwgHCClr57Q13ZARN9ZZ2qdqYIM"
+                  alt="Anwar Hossain"
+                />
+              </div>
+              <div>
+                <p class="font-bold text-on-background text-sm">
+                  Anwar Hossain
+                </p>
+                <p class="text-xs text-outline uppercase font-bold">
+                  Tech Entrepreneur
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- T2 -->
+          <div
+            class="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant"
+          >
+            <div class="flex text-amber-400 mb-4">
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+            </div>
+            <p
+              class="italic text-on-surface-variant text-sm mb-6 leading-relaxed"
+            >
+              "I get monthly updates with photos of the cattle I've funded. It's
+              a connection to my roots that I lost after moving to Dhaka."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-11 h-11 rounded-full bg-surface-container-highest overflow-hidden shrink-0"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7LFiWRnrwH6YnE4GY33PVkaF-tJz_3DpMON1aw-4Rn7G3OAPXAlgb-hr5XIKRn4gqHo8eStBUQWdJf0RKiOwoCc2trN3V1WNDixEN1gh60JA6JZUGtKrHX5MIFY-GfpWBrU8tQn8x-IDQbjih2D1-QiqKawo8AUhodg1chrYqdlrrBtCiCe9ELn3b-lyFXyKmwwiKMKFk9GyKT20gitQxUaRQKBLICa3qBCHPx61foL0evuepWZOkBNTaCzKnnSL0tPXxmWEP9Gg"
+                  alt="Farah Jahan"
+                />
+              </div>
+              <div>
+                <p class="font-bold text-on-background text-sm">Farah Jahan</p>
+                <p class="text-xs text-outline uppercase font-bold">
+                  Financial Analyst
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- T3 -->
+          <div
+            class="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant"
+          >
+            <div class="flex text-amber-400 mb-4">
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+            </div>
+            <p
+              class="italic text-on-surface-variant text-sm mb-6 leading-relaxed"
+            >
+              "Being part of the artisan collective has grown our village's
+              monthly income by 40%. The platform cut out the middlemen who used
+              to take all our profits."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-11 h-11 rounded-full bg-surface-container-highest overflow-hidden shrink-0"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW2veuMR4C1uy8fGrmmb5Et3v-dwkXWSmt5t6keg709OFBsUi5jAjKSr2uK-RajD1Nodrt1DSiDj07Jr_3JQfH-sONO7Ztzp2vHRhShJMEVowsbH9ywuTVT9gyRx3ReFGl9CFsgDqlwP9AUDAXN8zqcy5yNb2ha6jL0879tHdSLEUUkwPrdQMu6rhBGWHk4CnzRw8PvjnDzY-KLRGaDn8f22D2s3hCNAnIQzzwGAHgiDlUFRjJ57tpA_flm50ZuqjWlwHiR1IcGzw"
+                  alt="Rabeya Begum"
+                />
+              </div>
+              <div>
+                <p class="font-bold text-on-background text-sm">Rabeya Begum</p>
+                <p class="text-xs text-outline uppercase font-bold">
+                  Artisan Leader
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="bg-emerald-50 border-t border-emerald-100 safe-bottom">
+      <div class="max-w-screen-xl mx-auto px-5 pt-12 pb-6">
+        <div class="flex flex-col gap-10 mb-10 sm:flex-row sm:justify-between">
+          <!-- Brand -->
+          <div class="max-w-xs">
+            <a class="text-base font-black text-emerald-900 mb-3 block" href="#"
+              >GRAM-BONDHON</a
+            >
+            <p class="text-emerald-700/70 text-sm mb-5 leading-relaxed">
+              Bridging the gap between rural ambition and ethical investment for
+              a sustainable Bangladesh.
+            </p>
+            <div class="flex gap-3">
+              <a
+                class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-lg">language</span>
+              </a>
+              <a
+                class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-lg">public</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Links grid -->
+          <div class="grid grid-cols-3 gap-6 text-sm">
+            <div>
+              <h4
+                class="font-bold text-emerald-900 mb-3 uppercase tracking-wider text-xs"
+              >
+                Resources
+              </h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Impact Report</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Investor FAQ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Case Studies</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                class="font-bold text-emerald-900 mb-3 uppercase tracking-wider text-xs"
+              >
+                Company
+              </h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Contact</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Partners</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                class="font-bold text-emerald-900 mb-3 uppercase tracking-wider text-xs"
+              >
+                Legal
+              </h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Privacy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-emerald-700/70 hover:text-emerald-900 transition"
+                    href="#"
+                    >Terms</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pt-6 border-t border-emerald-100 flex flex-col sm:flex-row justify-between items-center gap-3 text-emerald-700/50 text-xs"
+        >
+          <p>© 2024 GRAM-BONDHON. Rooted Innovation for Rural Growth.</p>
+          <div class="flex gap-5">
+            <span>English (US)</span>
+            <span>বাংলা (BD)</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ─── WHATSAPP FAB ─── -->
+    <a
+      href="https://wa.me/"
+      aria-label="Chat on WhatsApp"
+      class="fixed bottom-6 right-5 w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50"
+      style="bottom: calc(1.5rem + env(safe-area-inset-bottom))"
+    >
+      <svg fill="currentColor" height="28" width="28" viewBox="0 0 24 24">
+        <path
+          d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.19-.573c.963.523 1.937.894 3.14.895 3.182 0 5.768-2.586 5.769-5.766 0-3.181-2.587-5.767-5.768-5.767zm3.387 8.192c-.146.415-.844.75-1.155.795-.311.045-.694.067-1.125-.13-.43-.197-1.428-.687-2.327-1.488-.9-.8-1.55-1.597-1.85-2.012-.3-.415-.479-.691-.479-1.012 0-.322.167-.483.333-.644.167-.161.333-.161.417-.161h.25c.104 0 .229.023.333.276.104.253.417 1.012.458 1.104.041.092.062.184 0 .3-.062.115-.146.184-.229.276-.083.092-.167.138-.083.276.083.138.375.621.812 1.012.542.484 1 .644 1.146.736.146.092.229.069.312-.023.083-.092.354-.414.458-.552.104-.138.208-.115.312-.069.104.046.667.315.771.369.104.054.167.081.208.15.042.069.042.4-.104.815zM12 2C6.477 2 2 6.477 2 12c0 1.83.49 3.546 1.341 5.03L2 22l5.122-1.341C8.544 21.51 10.17 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      // Hamburger toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const bar1 = document.getElementById("bar1");
+      const bar2 = document.getElementById("bar2");
+      const bar3 = document.getElementById("bar3");
+
+      menuBtn.addEventListener("click", () => {
+        const open = mobileMenu.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", open);
+        if (open) {
+          bar1.style.cssText = "transform:translateY(8px) rotate(45deg)";
+          bar2.style.cssText = "opacity:0;transform:scaleX(0)";
+          bar3.style.cssText =
+            "width:1.25rem;transform:translateY(-8px) rotate(-45deg)";
+        } else {
+          bar1.style.cssText = "";
+          bar2.style.cssText = "";
+          bar3.style.cssText = "";
+        }
+      });
+
+      // Close menu when a link is tapped
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded", false);
+          bar1.style.cssText = "";
+          bar2.style.cssText = "";
+          bar3.style.cssText = "";
+        });
+      });
+    </script>
+  </body>
+</html>

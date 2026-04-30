@@ -1,0 +1,28 @@
+:root {
+  --bg-1: #f8f4ed;
+  --bg-2: #ffefe8;
+  --ink-strong: #153a5b;
+  --ink-soft: #355b73;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-strong: #ffffff;
+
+  --accent-coral: #ff6b57;
+  --accent-ocean: #153a5b;
+  --accent-mint: #2dbfa3;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  --shadow-float: 0 22px 45px rgba(21, 58, 91, 0.15);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-ui: "Space Grotesk", "Segoe UI", sans-serif;
+}

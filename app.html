@@ -1,0 +1,2063 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=390, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+    />
+    <title>GRAM-BONDHON App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --green-950: #052e16;
+        --green-900: #0f5238;
+        --green-800: #166534;
+        --green-700: #15803d;
+        --green-500: #22c55e;
+        --green-100: #dcfce7;
+        --green-50: #f0fdf4;
+        --cream: #fcf9f1;
+        --cream-2: #f6f3eb;
+        --ink: #1c1c17;
+        --ink-soft: #404943;
+        --outline: #bfc9c1;
+        --white: #ffffff;
+        --amber: #f59e0b;
+        --coral: #ef4444;
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+        --safe-top: env(safe-area-inset-top, 0px);
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: #1a1a1a;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        overscroll-behavior: none;
+      }
+
+      /* ── PHONE SHELL (desktop preview) ── */
+      .phone-shell {
+        width: 390px;
+        height: 844px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        background: var(--cream);
+        border-radius: 44px;
+        box-shadow:
+          0 0 0 10px #222,
+          0 0 0 11px #444,
+          0 40px 80px rgba(0, 0, 0, 0.6);
+      }
+
+      /* On real mobile → full screen */
+      @media (max-width: 430px) {
+        html,
+        body {
+          background: var(--cream);
+        }
+        .phone-shell {
+          width: 100vw;
+          height: 100svh;
+          border-radius: 0;
+          box-shadow: none;
+          margin: 0;
+        }
+      }
+
+      /* ── STATUS BAR ── */
+      .status-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        padding: 14px 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+      .status-bar.dark {
+        color: var(--white);
+      }
+      .status-bar.light {
+        color: var(--ink);
+      }
+      .status-time {
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .status-icons {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      /* Dynamic island */
+      .dynamic-island {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 34px;
+        background: #000;
+        border-radius: 20px;
+        z-index: 200;
+      }
+
+      /* ── SCREENS ── */
+      .screen {
+        position: absolute;
+        inset: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior-y: contain;
+        background: var(--cream);
+        display: none;
+        flex-direction: column;
+        padding-bottom: calc(80px + var(--safe-bottom));
+      }
+      .screen.active {
+        display: flex;
+      }
+      .screen::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* ── BOTTOM TAB BAR ── */
+      .tabbar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(72px + var(--safe-bottom));
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        display: flex;
+        align-items: flex-start;
+        padding-top: 8px;
+        z-index: 100;
+      }
+      .tab-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px 0;
+        transition: transform 150ms ease;
+      }
+      .tab-item:active {
+        transform: scale(0.9);
+      }
+      .tab-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 200ms,
+          color 200ms;
+      }
+      .tab-item .tab-icon .material-symbols-rounded {
+        font-size: 22px;
+        color: #9ca3af;
+      }
+      .tab-item.active .tab-icon {
+        background: var(--green-100);
+      }
+      .tab-item.active .tab-icon .material-symbols-rounded {
+        color: var(--green-900);
+      }
+      .tab-label {
+        font-size: 10px;
+        font-weight: 600;
+        color: #9ca3af;
+      }
+      .tab-item.active .tab-label {
+        color: var(--green-900);
+      }
+
+      /* ── HERO SCREEN (Home) ── */
+      .home-hero {
+        position: relative;
+        width: 100%;
+        height: 360px;
+        flex-shrink: 0;
+      }
+      .home-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 800ms ease;
+      }
+      .hero-slide.active {
+        opacity: 1;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(15, 82, 56, 0.6) 60%,
+          var(--cream) 100%
+        );
+      }
+      .hero-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 20px 24px;
+      }
+      .hero-tag {
+        display: inline-block;
+        padding: 3px 10px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(8px);
+        border-radius: 20px;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .hero-title {
+        font-size: 22px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      }
+      .hero-sub {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.5;
+        margin-top: 6px;
+      }
+      .hero-dots {
+        position: absolute;
+        right: 16px;
+        bottom: 18px;
+        display: flex;
+        gap: 6px;
+        z-index: 3;
+      }
+      .hero-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .hero-dot.active {
+        width: 20px;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .home-topnav {
+        position: absolute;
+        top: 54px;
+        left: 14px;
+        right: 14px;
+        z-index: 20;
+        border-radius: 14px;
+        padding: 8px;
+        background: rgba(207, 239, 251, 0.72);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .brand-chip {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.65);
+        border-radius: 10px;
+        padding: 7px 10px;
+        color: var(--green-900);
+        font-size: 11px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      .brand-chip .material-symbols-rounded {
+        font-size: 15px;
+      }
+      .mini-search {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 10px;
+        padding: 7px 10px;
+      }
+      .mini-search .material-symbols-rounded {
+        font-size: 16px;
+        color: #64748b;
+      }
+      .mini-search input {
+        border: none;
+        outline: none;
+        width: 100%;
+        background: transparent;
+        font:
+          600 11px "Plus Jakarta Sans",
+          sans-serif;
+        color: #334155;
+      }
+      .signup-chip {
+        border: none;
+        border-radius: 10px;
+        padding: 8px 10px;
+        background: var(--green-900);
+        color: #fff;
+        font:
+          700 11px "Plus Jakarta Sans",
+          sans-serif;
+      }
+
+      .halal-card {
+        margin: 0 16px 18px;
+        display: flex;
+        background: var(--white);
+        border: 1px solid rgba(15, 82, 56, 0.12);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      }
+      .halal-card img {
+        width: 118px;
+        object-fit: cover;
+      }
+      .halal-body {
+        padding: 12px;
+      }
+      .halal-kicker {
+        font-size: 9px;
+        font-weight: 800;
+        color: var(--green-800);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .halal-title {
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 1.3;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .halal-points {
+        margin-top: 7px;
+        color: var(--ink-soft);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .btn-primary {
+        flex: 1;
+        padding: 13px;
+        background: var(--green-900);
+        color: #fff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: transform 150ms;
+        active: scale(0.95);
+      }
+      .btn-primary:active {
+        transform: scale(0.95);
+      }
+      .btn-secondary {
+        flex: 1;
+        padding: 13px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        border-radius: 14px;
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+      }
+      .btn-secondary:active {
+        transform: scale(0.95);
+      }
+
+      /* ── STATS STRIP ── */
+      .stats-strip {
+        margin: 0 16px 16px;
+        background: var(--green-900);
+        border-radius: 20px;
+        padding: 14px 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+      }
+      .stat-item {
+        padding: 0 8px;
+      }
+      .stat-item + .stat-item {
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .stat-val {
+        font-size: 18px;
+        font-weight: 800;
+        color: #6ee7b7;
+      }
+      .stat-lbl {
+        font-size: 9px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-top: 2px;
+      }
+
+      /* ── SECTION HEADER ── */
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .section-link {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--green-800);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .material-symbols-rounded {
+        font-family: "Material Symbols Rounded";
+        font-style: normal;
+      }
+
+      /* ── PROJECT CARDS (horizontal scroll) ── */
+      .cards-scroll {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4px 16px 12px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .cards-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .proj-card {
+        width: 200px;
+        flex-shrink: 0;
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .proj-img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        display: block;
+      }
+      .proj-body {
+        padding: 12px;
+      }
+      .proj-badge {
+        display: inline-block;
+        padding: 3px 9px;
+        border-radius: 20px;
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 7px;
+      }
+      .badge-green {
+        background: var(--green-100);
+        color: var(--green-800);
+      }
+      .badge-blue {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .badge-teal {
+        background: #ccfbf1;
+        color: #0f766e;
+      }
+      .proj-loc {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 10px;
+        color: #9ca3af;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .proj-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 10px;
+      }
+      .proj-progress-wrap {
+        height: 5px;
+        background: #f1f5f9;
+        border-radius: 99px;
+        overflow: hidden;
+        margin-bottom: 4px;
+      }
+      .proj-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--green-800), #34d399);
+        border-radius: 99px;
+      }
+      .proj-stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #f1f5f9;
+      }
+      .proj-roi {
+        font-size: 15px;
+        font-weight: 800;
+        color: var(--green-900);
+      }
+      .proj-roi-lbl {
+        font-size: 9px;
+        color: #9ca3af;
+        font-weight: 600;
+        display: block;
+      }
+      .btn-invest {
+        padding: 7px 14px;
+        background: var(--green-900);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .btn-invest:active {
+        transform: scale(0.92);
+      }
+      .btn-closed {
+        padding: 7px 14px;
+        background: var(--green-50);
+        color: var(--green-800);
+        font-size: 11px;
+        font-weight: 700;
+        border: 1px solid var(--green-800);
+        border-radius: 10px;
+      }
+
+      /* ── HOW IT WORKS ── */
+      .steps-row {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 4px 16px 12px;
+        scroll-snap-type: x mandatory;
+      }
+      .steps-row::-webkit-scrollbar {
+        display: none;
+      }
+      .step-card {
+        min-width: 160px;
+        background: #f4f8f6;
+        border-radius: 20px;
+        padding: 16px 14px;
+        scroll-snap-align: start;
+        border: 1px solid rgba(19, 78, 74, 0.18);
+        border-left: 4px solid #2f7666;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        flex-shrink: 0;
+      }
+      .step-card:nth-child(2) {
+        border-left-color: #2b7b78;
+      }
+      .step-card:nth-child(3) {
+        border-left-color: #337b5e;
+      }
+      .step-card:nth-child(4) {
+        border-left-color: #3a8372;
+      }
+      .step-card:nth-child(5) {
+        border-left-color: #467d66;
+      }
+      .step-card:nth-child(6) {
+        border-left-color: #2a6e5e;
+      }
+      .step-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        background: #d8ede5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      .step-icon .material-symbols-rounded {
+        font-size: 22px;
+        color: var(--green-900);
+      }
+      .step-num {
+        font-size: 10px;
+        font-weight: 700;
+        color: #9ca3af;
+        margin-bottom: 4px;
+      }
+      .step-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 5px;
+      }
+      .step-desc {
+        font-size: 11px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+
+      /* ── TESTIMONIALS ── */
+      .testi-card {
+        margin: 0 16px 12px;
+        background: var(--white);
+        border-radius: 20px;
+        padding: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      }
+      .stars {
+        display: flex;
+        gap: 2px;
+        margin-bottom: 10px;
+      }
+      .star {
+        font-size: 14px;
+        color: var(--amber);
+      }
+      .testi-quote {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        font-style: italic;
+        margin-bottom: 12px;
+      }
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .testi-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .testi-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .testi-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .testi-role {
+        font-size: 10px;
+        font-weight: 600;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* ── SECTION SPACING ── */
+      .section {
+        margin-bottom: 24px;
+      }
+
+      /* ── ARTISAN BANNER ── */
+      .artisan-banner {
+        margin: 0 16px 24px;
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        height: 180px;
+      }
+      .artisan-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .artisan-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          rgba(15, 82, 56, 0.85) 0%,
+          rgba(15, 82, 56, 0.3) 100%
+        );
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .artisan-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 5px;
+      }
+      .artisan-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 10px;
+      }
+      .artisan-btn {
+        display: inline-block;
+        padding: 9px 18px;
+        background: #fff;
+        color: var(--green-900);
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        width: fit-content;
+      }
+
+      .about-stack {
+        display: grid;
+        gap: 10px;
+        margin: 0 16px 24px;
+      }
+      .about-card {
+        background: var(--white);
+        border: 1px solid rgba(15, 82, 56, 0.12);
+        border-radius: 16px;
+        padding: 14px;
+      }
+      .about-title {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--green-900);
+      }
+      .about-desc {
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+      .about-cta {
+        margin-top: 8px;
+        background: var(--green-900);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 12px;
+        font:
+          700 11px "Plus Jakarta Sans",
+          sans-serif;
+      }
+
+      /* ─── MARKETPLACE SCREEN ─── */
+      .screen-topbar {
+        padding: 56px 16px 16px;
+        background: var(--white);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .screen-topbar h1 {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .screen-topbar p {
+        font-size: 12px;
+        color: #9ca3af;
+        margin-top: 2px;
+      }
+      .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--cream-2);
+        border-radius: 14px;
+        padding: 10px 14px;
+        margin-top: 12px;
+      }
+      .search-bar .material-symbols-rounded {
+        font-size: 20px;
+        color: #9ca3af;
+      }
+      .search-bar input {
+        flex: 1;
+        background: none;
+        border: none;
+        outline: none;
+        font:
+          500 13px "Plus Jakarta Sans",
+          sans-serif;
+        color: var(--ink);
+      }
+      .filter-chips {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 12px 16px 0;
+      }
+      .filter-chips::-webkit-scrollbar {
+        display: none;
+      }
+      .fchip {
+        padding: 7px 14px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        border: 1.5px solid var(--outline);
+        color: var(--ink-soft);
+        background: var(--white);
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 150ms;
+      }
+      .fchip.on {
+        background: var(--green-900);
+        color: #fff;
+        border-color: var(--green-900);
+      }
+
+      .mkt-grid {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mkt-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        gap: 0;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      }
+      .mkt-img {
+        width: 110px;
+        flex-shrink: 0;
+      }
+      .mkt-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .mkt-body {
+        padding: 12px;
+        flex: 1;
+      }
+      .mkt-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 3px;
+      }
+      .mkt-loc {
+        font-size: 10px;
+        color: #9ca3af;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .mkt-bar-wrap {
+        height: 5px;
+        background: #f1f5f9;
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .mkt-bar-fill {
+        height: 100%;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--green-800), #34d399);
+      }
+      .mkt-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .mkt-roi {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--green-900);
+      }
+      .mkt-pct {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--green-800);
+      }
+
+      /* ─── PROFILE SCREEN ─── */
+      .profile-hero {
+        background: linear-gradient(160deg, var(--green-900), #166534);
+        padding: 60px 20px 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .avatar-ring {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 255, 255, 0.4);
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+      .avatar-ring img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .profile-name {
+        font-size: 20px;
+        font-weight: 800;
+        color: #fff;
+      }
+      .profile-handle {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 3px;
+      }
+      .profile-stats {
+        display: flex;
+        gap: 0;
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .pstat {
+        flex: 1;
+        padding: 12px 10px;
+        text-align: center;
+      }
+      .pstat + .pstat {
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .pstat-val {
+        font-size: 16px;
+        font-weight: 800;
+        color: #fff;
+      }
+      .pstat-lbl {
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .profile-menu {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: var(--white);
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .menu-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu-icon .material-symbols-rounded {
+        font-size: 20px;
+      }
+      .menu-label {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .menu-arrow .material-symbols-rounded {
+        font-size: 18px;
+        color: #d1d5db;
+      }
+
+      /* ─── PROJECTS SCREEN ─── */
+      .proj-full-card {
+        margin: 0 16px 12px;
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      }
+      .proj-full-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+      .proj-full-body {
+        padding: 14px;
+      }
+      .proj-full-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+      .proj-full-name {
+        font-size: 15px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .proj-status {
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .status-open {
+        background: var(--green-100);
+        color: var(--green-800);
+      }
+      .status-closed {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .proj-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 11px;
+        color: #9ca3af;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .proj-full-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        border-top: 1px solid #f8fafc;
+      }
+
+      /* Page transitions */
+      .screen {
+        animation: fadeUp 300ms ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="phone-shell">
+      <!-- Dynamic Island -->
+      <div class="dynamic-island"></div>
+
+      <!-- ════════════════════ SCREEN: HOME ════════════════════ -->
+      <div class="screen active" id="screen-home">
+        <div
+          class="status-bar dark"
+          style="
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(390px, 100vw);
+            z-index: 200;
+          "
+        >
+          <span class="status-time">9:41</span>
+          <div class="status-icons">
+            <span>●●●</span>
+            <span>WiFi</span>
+            <span>⚡82%</span>
+          </div>
+        </div>
+
+        <div class="home-topnav">
+          <div class="brand-chip">
+            <span class="material-symbols-rounded">eco</span>GRAM-BONDHON
+          </div>
+          <label class="mini-search" aria-label="search">
+            <span class="material-symbols-rounded">search</span>
+            <input type="search" placeholder="Search" />
+          </label>
+          <button class="signup-chip">Sign Up</button>
+        </div>
+
+        <div class="home-hero">
+          <img
+            class="hero-slide active"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuADMxpkzLa2L2_d3vI80sFF5bk1YchzO51zZLKud7Sxrlv4S-_UV7yMCERC7EXqS2-TP2RznqacRUnCcPwjDX8kWSZycKDBbTNNcCPAPKybHsnPxic2SEP9YfQ3D3MsvO9-bvvk7LFDR7-oPyx6ctk3H4gSbJuri9gugLF14zOma-sV_WKMZZ4cSYMbY16HnIR85uEg-BxCqe8iuoGvuINp6OgYfv6WeRRBpZJfRuOAxa33KxF9DNMsxX0zB0esWdkKUB2GpWWleEg"
+            alt="Rural field"
+          />
+          <img
+            class="hero-slide"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XOJsk__eCMyZm-tnQG13wrYf6SB39fqsyAShGKmQ1UmofNmK4s8psqVjiqFFWS055xWcsy1KnYSYcNyAhYlBbyBa9apt4U9UX1esiM6SNwrRLHP1-6NJmK3tu9LrdX4QfYwW_tz6D0v3yTOW7c7RkFtqmdS2bSYYJDunbeF6ztYdZVMtoVw8wN1pQuKMldbRsdq3XKULStydeIBZ7zEbxLx4KuV1EnXP1APw04WjpryxfSU791hv5Oc9cnrGkB5QVLxRAQNKI8"
+            alt="Harvest"
+          />
+          <img
+            class="hero-slide"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I-lcZEhlYHYXXNmJe4g5-WXPnSIIGQlSn0Dpb2Zvuy2Sb3QfOqSRtntc389vIUY5yl2YvGcgZm29EJ-yolt3YFsFXW3nlgmkcq3z_Ih5uMoLXT-AJvbo9wNUrVbvFHqXjF_Ok6xVetABGuRjJvf8jplrpyzQoVMK2CEXHand-cnBdIGtHRDZZYn8uywOgzkIrt-l5lvtexPElSzZHY33pztDqv83ZbKjzJLzHLB0MqqrQ89QelGCF55oFrctvdB9xsXKEjdcqaA"
+            alt="Nakshi Kantha"
+          />
+          <img
+            class="hero-slide"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5AisnMwM4WqqwyLslJR4OlraBHvkEa0CYn50SGKbfxkW7Y5Qe26GpSs-qoGo3wKCu57hAp6JtAxU33txWidrKvnM0CmTygxn5hMjc2Znn4va4fkR5omJJUVLNciOQfVUVjKdED8gvF1WygmLCeH-GpOsdvOxQVtfBHMiTo_jWUyrwSWXDHpDghgE-xdvEK29vffBvZ6CbBNCrmD7sjJuum5iy_GC4sUDXjiiipIc3Sw9DGZ55S7VASBj8RNdMDYTITI7qK__4Rk"
+            alt="Handcrafted baskets"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-text">
+            <span class="hero-tag">Rooted Innovation</span>
+            <h1 class="hero-title">
+              Empowering Rural Growth Through Ethical Investment
+            </h1>
+            <p class="hero-sub">
+              Transparent, high-impact bonds for farmers and artisans.
+            </p>
+            <div class="hero-btns">
+              <button class="btn-primary">Join as Farmer</button>
+              <button class="btn-secondary">Invest Now</button>
+            </div>
+          </div>
+          <div class="hero-dots">
+            <span class="hero-dot active"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+            <span class="hero-dot"></span>
+          </div>
+        </div>
+
+        <div class="stats-strip" style="margin-top: 16px">
+          <div class="stat-item">
+            <div class="stat-val">2,400+</div>
+            <div class="stat-lbl">Farmers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">৳18Cr</div>
+            <div class="stat-lbl">Invested</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">14.2%</div>
+            <div class="stat-lbl">Avg ROI</div>
+          </div>
+        </div>
+
+        <div class="halal-card">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XOJsk__eCMyZm-tnQG13wrYf6SB39fqsyAShGKmQ1UmofNmK4s8psqVjiqFFWS055xWcsy1KnYSYcNyAhYlBbyBa9apt4U9UX1esiM6SNwrRLHP1-6NJmK3tu9LrdX4QfYwW_tz6D0v3yTOW7c7RkFtqmdS2bSYYJDunbeF6ztYdZVMtoVw8wN1pQuKMldbRsdq3XKULStydeIBZ7zEbxLx4KuV1EnXP1APw04WjpryxfSU791hv5Oc9cnrGkB5QVLxRAQNKI8"
+            alt="Halal investment"
+          />
+          <div class="halal-body">
+            <div class="halal-kicker">Halal Investment Reimagined</div>
+            <div class="halal-title">0% Interest, 100% Asset-Backed</div>
+            <div class="halal-points">
+              Risk-sharing model with transparent production and fair returns.
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">How It Works</span>
+          </div>
+          <div class="steps-row">
+            <div class="step-card">
+              <div class="step-icon">
+                <span class="material-symbols-rounded">agriculture</span>
+              </div>
+              <div class="step-num">Step 01</div>
+              <div class="step-title">Farmers Create Projects</div>
+              <div class="step-desc">
+                Rural entrepreneurs list crop, fishery, and handicraft plans.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-icon">
+                <span class="material-symbols-rounded">payments</span>
+              </div>
+              <div class="step-num">Step 02</div>
+              <div class="step-title">Investors Fund Ventures</div>
+              <div class="step-desc">
+                Investors back vetted projects from as low as 5,000 BDT.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-icon">
+                <span class="material-symbols-rounded">school</span>
+              </div>
+              <div class="step-num">Step 03</div>
+              <div class="step-title">Training & Support</div>
+              <div class="step-desc">
+                Admin provides continuous guidance to improve skills and output.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-icon">
+                <span class="material-symbols-rounded">monitoring</span>
+              </div>
+              <div class="step-num">Step 04</div>
+              <div class="step-title">Production Monitoring</div>
+              <div class="step-desc">
+                Farmers and artisans produce while admin tracks quality.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-icon">
+                <span class="material-symbols-rounded">storefront</span>
+              </div>
+              <div class="step-num">Step 05</div>
+              <div class="step-title">Sales & Distribution</div>
+              <div class="step-desc">
+                Goods are sold online and in local markets; customers buy
+                direct.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-icon">
+                <span class="material-symbols-rounded">trending_up</span>
+              </div>
+              <div class="step-num">Step 06</div>
+              <div class="step-title">Profit Distribution</div>
+              <div class="step-desc">
+                Returns are fairly shared among investors, producers, and
+                platform.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Active Projects</span>
+            <button class="section-link" onclick="switchTab('marketplace')">
+              View all
+              <span class="material-symbols-rounded" style="font-size: 14px"
+                >chevron_right</span
+              >
+            </button>
+          </div>
+          <div class="cards-scroll">
+            <div class="proj-card">
+              <img
+                class="proj-img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XOJsk__eCMyZm-tnQG13wrYf6SB39fqsyAShGKmQ1UmofNmK4s8psqVjiqFFWS055xWcsy1KnYSYcNyAhYlBbyBa9apt4U9UX1esiM6SNwrRLHP1-6NJmK3tu9LrdX4QfYwW_tz6D0v3yTOW7c7RkFtqmdS2bSYYJDunbeF6ztYdZVMtoVw8wN1pQuKMldbRsdq3XKULStydeIBZ7zEbxLx4KuV1EnXP1APw04WjpryxfSU791hv5Oc9cnrGkB5QVLxRAQNKI8"
+                alt="Rice"
+              />
+              <div class="proj-body">
+                <span class="proj-badge badge-green">Agriculture</span>
+                <div class="proj-loc">
+                  <span class="material-symbols-rounded" style="font-size: 11px"
+                    >location_on</span
+                  >Mymensingh
+                </div>
+                <div class="proj-name">Monsoon Paddy Harvest</div>
+                <div class="proj-progress-wrap">
+                  <div class="proj-progress-fill" style="width: 90%"></div>
+                </div>
+                <div
+                  style="
+                    font-size: 10px;
+                    color: #9ca3af;
+                    font-weight: 600;
+                    margin-top: 3px;
+                  "
+                >
+                  90% funded
+                </div>
+                <div class="proj-stats">
+                  <div>
+                    <span class="proj-roi-lbl">ROI</span
+                    ><span class="proj-roi">12.5%</span>
+                  </div>
+                  <button class="btn-invest">Invest</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj-card">
+              <img
+                class="proj-img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3F4FX7KmpvXR88gY1cmtRDTM9hby4nGJU2PxXO6wSYZORzT4A9Vhf0T1x0QkSQBbQWgitAHxLKg1ufnZsvAsbhtpgDRdCauv8-lXEKRPCNJe2ICnPUJgaGlK67vzKe4TkqJv2MbeZRbHyhvisNYaMeqajCwPWTWz-TKNQkHJKt8acP6f6adxSme5voeoc7C6wntSF3C-IkM68g3E9Z-AwCXMk1uhz9svh4YbNyfdVhemAp_5YmH-j4TNJ2_hPAyog4cqMkr4ehlQ"
+                alt="Poultry"
+              />
+              <div class="proj-body">
+                <span class="proj-badge badge-blue">Livestock</span>
+                <div class="proj-loc">
+                  <span class="material-symbols-rounded" style="font-size: 11px"
+                    >location_on</span
+                  >Bogra
+                </div>
+                <div class="proj-name">Sustainable Poultry</div>
+                <div class="proj-progress-wrap">
+                  <div class="proj-progress-fill" style="width: 65%"></div>
+                </div>
+                <div
+                  style="
+                    font-size: 10px;
+                    color: #9ca3af;
+                    font-weight: 600;
+                    margin-top: 3px;
+                  "
+                >
+                  65% funded
+                </div>
+                <div class="proj-stats">
+                  <div>
+                    <span class="proj-roi-lbl">ROI</span
+                    ><span class="proj-roi">15.0%</span>
+                  </div>
+                  <button class="btn-invest">Invest</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj-card">
+              <img
+                class="proj-img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzI2DbPCP4ezCvVTLSDKOwqpl4cqlzo90b13bMxZGgLUus-J3M6nFctxQ2hn2LSphr58Z-QC3TC_mpMxcVnlBvtnkU5j5LiKarMAXRxY2BhCPmQeXqE3h84Eq4CeokI_6AwtpoUBLJD1RrIv0Sioy499g2Bgkx_Gh8EqT4FCvjQPDTLi86i-cR4bg3Mvi3TV6C176fFDI51osjrpsFvjflPZL6RTOm8nWgPYwhZTWFw7xJ43OeeEmw3nlzNTxBAdZKyssUdG1DR7E"
+                alt="Fish"
+              />
+              <div class="proj-body">
+                <span class="proj-badge badge-teal">Fishery</span>
+                <div class="proj-loc">
+                  <span class="material-symbols-rounded" style="font-size: 11px"
+                    >location_on</span
+                  >Sylhet
+                </div>
+                <div class="proj-name">Sylhet Bio-Fish Hatchery</div>
+                <div class="proj-progress-wrap">
+                  <div class="proj-progress-fill" style="width: 42%"></div>
+                </div>
+                <div
+                  style="
+                    font-size: 10px;
+                    color: #9ca3af;
+                    font-weight: 600;
+                    margin-top: 3px;
+                  "
+                >
+                  42% funded
+                </div>
+                <div class="proj-stats">
+                  <div>
+                    <span class="proj-roi-lbl">ROI</span
+                    ><span class="proj-roi">18.2%</span>
+                  </div>
+                  <button class="btn-invest">Invest</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj-card">
+              <img
+                class="proj-img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I-lcZEhlYHYXXNmJe4g5-WXPnSIIGQlSn0Dpb2Zvuy2Sb3QfOqSRtntc389vIUY5yl2YvGcgZm29EJ-yolt3YFsFXW3nlgmkcq3z_Ih5uMoLXT-AJvbo9wNUrVbvFHqXjF_Ok6xVetABGuRjJvf8jplrpyzQoVMK2CEXHand-cnBdIGtHRDZZYn8uywOgzkIrt-l5lvtexPElSzZHY33pztDqv83ZbKjzJLzHLB0MqqrQ89QelGCF55oFrctvdB9xsXKEjdcqaA"
+                alt="Nakshi Kantha"
+              />
+              <div class="proj-body">
+                <span class="proj-badge badge-green">Handicraft</span>
+                <div class="proj-loc">
+                  <span class="material-symbols-rounded" style="font-size: 11px"
+                    >location_on</span
+                  >Rajshahi
+                </div>
+                <div class="proj-name">Nakshi Kantha Collective</div>
+                <div class="proj-progress-wrap">
+                  <div class="proj-progress-fill" style="width: 63%"></div>
+                </div>
+                <div
+                  style="
+                    font-size: 10px;
+                    color: #9ca3af;
+                    font-weight: 600;
+                    margin-top: 3px;
+                  "
+                >
+                  63% funded
+                </div>
+                <div class="proj-stats">
+                  <div>
+                    <span class="proj-roi-lbl">ROI</span
+                    ><span class="proj-roi">11.0%</span>
+                  </div>
+                  <button class="btn-invest">Invest</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj-card">
+              <img
+                class="proj-img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5AisnMwM4WqqwyLslJR4OlraBHvkEa0CYn50SGKbfxkW7Y5Qe26GpSs-qoGo3wKCu57hAp6JtAxU33txWidrKvnM0CmTygxn5hMjc2Znn4va4fkR5omJJUVLNciOQfVUVjKdED8gvF1WygmLCeH-GpOsdvOxQVtfBHMiTo_jWUyrwSWXDHpDghgE-xdvEK29vffBvZ6CbBNCrmD7sjJuum5iy_GC4sUDXjiiipIc3Sw9DGZ55S7VASBj8RNdMDYTITI7qK__4Rk"
+                alt="Jhuri Beti Bag"
+              />
+              <div class="proj-body">
+                <span class="proj-badge badge-blue">Handicraft</span>
+                <div class="proj-loc">
+                  <span class="material-symbols-rounded" style="font-size: 11px"
+                    >location_on</span
+                  >Khulna
+                </div>
+                <div class="proj-name">Jhuri Beti Bag Workshop</div>
+                <div class="proj-progress-wrap">
+                  <div class="proj-progress-fill" style="width: 56%"></div>
+                </div>
+                <div
+                  style="
+                    font-size: 10px;
+                    color: #9ca3af;
+                    font-weight: 600;
+                    margin-top: 3px;
+                  "
+                >
+                  56% funded
+                </div>
+                <div class="proj-stats">
+                  <div>
+                    <span class="proj-roi-lbl">ROI</span
+                    ><span class="proj-roi">10.8%</span>
+                  </div>
+                  <button class="btn-invest">Invest</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="artisan-banner">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I-lcZEhlYHYXXNmJe4g5-WXPnSIIGQlSn0Dpb2Zvuy2Sb3QfOqSRtntc389vIUY5yl2YvGcgZm29EJ-yolt3YFsFXW3nlgmkcq3z_Ih5uMoLXT-AJvbo9wNUrVbvFHqXjF_Ok6xVetABGuRjJvf8jplrpyzQoVMK2CEXHand-cnBdIGtHRDZZYn8uywOgzkIrt-l5lvtexPElSzZHY33pztDqv83ZbKjzJLzHLB0MqqrQ89QelGCF55oFrctvdB9xsXKEjdcqaA"
+            alt="Artisan"
+          />
+          <div class="artisan-overlay">
+            <span class="artisan-label">Empowering Artisans</span>
+            <div class="artisan-title">
+              Handcrafted Legacy: Women Entrepreneurs
+            </div>
+            <button class="artisan-btn">Explore Collective</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Ratings & Reviews</span>
+          </div>
+          <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-quote">
+              "Knowing my capital is helping a farmer in Sylhet buy modern
+              equipment is much more rewarding than just seeing numbers in a
+              bank app."
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT4OFNEwF0T3Mq8n6p24v2UHizMyiS6mqn_6h7WugaAqD-GaGHDQI2F7dWzq93pw23JO7Z_BlaIATdIFYPYRumoDoukFm8hcroPfiEJkHvyo0EAEQOAOuUZZdebIAfmzo_b5l64YYauWyzgi3Vm9mCWtwF3pH1Pm8L2KxNMi1n1xExeFupFSW4THJ0eq5H9uq-9XmpQ_OquEUtxVvPR9i1I67Fe7A85fAIsH1tGYZXkwpi2FtZUwgHCClr57Q13ZARN9ZZ2qdqYIM"
+                  alt="Anwar"
+                />
+              </div>
+              <div>
+                <div class="testi-name">Anwar Hossain</div>
+                <div class="testi-role">Tech Entrepreneur</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-quote">
+              "Being part of the artisan collective has grown our village's
+              income by 40%. The platform cut out the middlemen entirely."
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW2veuMR4C1uy8fGrmmb5Et3v-dwkXWSmt5t6keg709OFBsUi5jAjKSr2uK-RajD1Nodrt1DSiDj07Jr_3JQfH-sONO7Ztzp2vHRhShJMEVowsbH9ywuTVT9gyRx3ReFGl9CFsgDqlwP9AUDAXN8zqcy5yNb2ha6jL0879tHdSLEUUkwPrdQMu6rhBGWHk4CnzRw8PvjnDzY-KLRGaDn8f22D2s3hCNAnIQzzwGAHgiDlUFRjJ57tpA_flm50ZuqjWlwHiR1IcGzw"
+                  alt="Rabeya"
+                />
+              </div>
+              <div>
+                <div class="testi-name">Rabeya Begum</div>
+                <div class="testi-role">Artisan Leader</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p class="testi-quote">
+              "I receive monthly updates with photos of the ventures I funded.
+              It feels connected, transparent, and meaningful."
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar">
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7LFiWRnrwH6YnE4GY33PVkaF-tJz_3DpMON1aw-4Rn7G3OAPXAlgb-hr5XIKRn4gqHo8eStBUQWdJf0RKiOwoCc2trN3V1WNDixEN1gh60JA6JZUGtKrHX5MIFY-GfpWBrU8tQn8x-IDQbjih2D1-QiqKawo8AUhodg1chrYqdlrrBtCiCe9ELn3b-lyFXyKmwwiKMKFk9GyKT20gitQxUaRQKBLICa3qBCHPx61foL0evuepWZOkBNTaCzKnnSL0tPXxmWEP9Gg"
+                  alt="Farah"
+                />
+              </div>
+              <div>
+                <div class="testi-name">Farah Jahan</div>
+                <div class="testi-role">Financial Analyst</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">About</span>
+          </div>
+          <div class="about-stack">
+            <article class="about-card">
+              <div class="about-title">Who We Are</div>
+              <p class="about-desc">
+                GRAM-BONDHON connects ethical investors with rural farmers and
+                women artisans across Bangladesh.
+              </p>
+            </article>
+            <article class="about-card">
+              <div class="about-title">Our Partners</div>
+              <p class="about-desc">
+                We collaborate with local cooperatives, community groups, and
+                logistics partners to ensure fair market access.
+              </p>
+            </article>
+            <article class="about-card">
+              <div class="about-title">Hiring</div>
+              <p class="about-desc">
+                Join our team to build inclusive finance and rural growth tools.
+              </p>
+              <button class="about-cta">View Openings</button>
+            </article>
+          </div>
+        </div>
+      </div>
+      <!-- end #screen-home -->
+
+      <!-- ════════════════════ SCREEN: MARKETPLACE ════════════════════ -->
+      <div class="screen" id="screen-marketplace">
+        <div class="screen-topbar">
+          <h1>Marketplace</h1>
+          <p>67 active investment bonds</p>
+          <div class="search-bar">
+            <span class="material-symbols-rounded">search</span>
+            <input
+              placeholder="Search projects, crops, regions…"
+              type="search"
+            />
+          </div>
+        </div>
+        <div class="filter-chips">
+          <button class="fchip on">All</button>
+          <button class="fchip">Agriculture</button>
+          <button class="fchip">Livestock</button>
+          <button class="fchip">Fishery</button>
+          <button class="fchip">Artisan</button>
+        </div>
+        <div class="mkt-grid">
+          <div class="mkt-card">
+            <div class="mkt-img">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XOJsk__eCMyZm-tnQG13wrYf6SB39fqsyAShGKmQ1UmofNmK4s8psqVjiqFFWS055xWcsy1KnYSYcNyAhYlBbyBa9apt4U9UX1esiM6SNwrRLHP1-6NJmK3tu9LrdX4QfYwW_tz6D0v3yTOW7c7RkFtqmdS2bSYYJDunbeF6ztYdZVMtoVw8wN1pQuKMldbRsdq3XKULStydeIBZ7zEbxLx4KuV1EnXP1APw04WjpryxfSU791hv5Oc9cnrGkB5QVLxRAQNKI8"
+                alt=""
+              />
+            </div>
+            <div class="mkt-body">
+              <div class="mkt-name">Monsoon Paddy Harvest</div>
+              <div class="mkt-loc">📍 Mymensingh, Bangladesh</div>
+              <div class="mkt-bar-wrap">
+                <div class="mkt-bar-fill" style="width: 90%"></div>
+              </div>
+              <div class="mkt-footer">
+                <span class="mkt-roi">12.5%</span
+                ><span class="mkt-pct">90% funded</span>
+              </div>
+            </div>
+          </div>
+          <div class="mkt-card">
+            <div class="mkt-img">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3F4FX7KmpvXR88gY1cmtRDTM9hby4nGJU2PxXO6wSYZORzT4A9Vhf0T1x0QkSQBbQWgitAHxLKg1ufnZsvAsbhtpgDRdCauv8-lXEKRPCNJe2ICnPUJgaGlK67vzKe4TkqJv2MbeZRbHyhvisNYaMeqajCwPWTWz-TKNQkHJKt8acP6f6adxSme5voeoc7C6wntSF3C-IkM68g3E9Z-AwCXMk1uhz9svh4YbNyfdVhemAp_5YmH-j4TNJ2_hPAyog4cqMkr4ehlQ"
+                alt=""
+              />
+            </div>
+            <div class="mkt-body">
+              <div class="mkt-name">Sustainable Poultry</div>
+              <div class="mkt-loc">📍 Bogra, Bangladesh</div>
+              <div class="mkt-bar-wrap">
+                <div class="mkt-bar-fill" style="width: 65%"></div>
+              </div>
+              <div class="mkt-footer">
+                <span class="mkt-roi">15.0%</span
+                ><span class="mkt-pct">65% funded</span>
+              </div>
+            </div>
+          </div>
+          <div class="mkt-card">
+            <div class="mkt-img">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzI2DbPCP4ezCvVTLSDKOwqpl4cqlzo90b13bMxZGgLUus-J3M6nFctxQ2hn2LSphr58Z-QC3TC_mpMxcVnlBvtnkU5j5LiKarMAXRxY2BhCPmQeXqE3h84Eq4CeokI_6AwtpoUBLJD1RrIv0Sioy499g2Bgkx_Gh8EqT4FCvjQPDTLi86i-cR4bg3Mvi3TV6C176fFDI51osjrpsFvjflPZL6RTOm8nWgPYwhZTWFw7xJ43OeeEmw3nlzNTxBAdZKyssUdG1DR7E"
+                alt=""
+              />
+            </div>
+            <div class="mkt-body">
+              <div class="mkt-name">Sylhet Bio-Fish Hatchery</div>
+              <div class="mkt-loc">📍 Sylhet, Bangladesh</div>
+              <div class="mkt-bar-wrap">
+                <div class="mkt-bar-fill" style="width: 42%"></div>
+              </div>
+              <div class="mkt-footer">
+                <span class="mkt-roi">18.2%</span
+                ><span class="mkt-pct">42% funded</span>
+              </div>
+            </div>
+          </div>
+          <div class="mkt-card">
+            <div class="mkt-img">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I-lcZEhlYHYXXNmJe4g5-WXPnSIIGQlSn0Dpb2Zvuy2Sb3QfOqSRtntc389vIUY5yl2YvGcgZm29EJ-yolt3YFsFXW3nlgmkcq3z_Ih5uMoLXT-AJvbo9wNUrVbvFHqXjF_Ok6xVetABGuRjJvf8jplrpyzQoVMK2CEXHand-cnBdIGtHRDZZYn8uywOgzkIrt-l5lvtexPElSzZHY33pztDqv83ZbKjzJLzHLB0MqqrQ89QelGCF55oFrctvdB9xsXKEjdcqaA"
+                alt=""
+              />
+            </div>
+            <div class="mkt-body">
+              <div class="mkt-name">Nakshi Kantha Artisans</div>
+              <div class="mkt-loc">📍 Rajshahi, Bangladesh</div>
+              <div class="mkt-bar-wrap">
+                <div class="mkt-bar-fill" style="width: 63%"></div>
+              </div>
+              <div class="mkt-footer">
+                <span class="mkt-roi">11.0%</span
+                ><span class="mkt-pct">63% funded</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end marketplace -->
+
+      <!-- ════════════════════ SCREEN: PROJECTS ════════════════════ -->
+      <div class="screen" id="screen-projects">
+        <div class="screen-topbar">
+          <h1>My Projects</h1>
+          <p>Track your active investments</p>
+        </div>
+        <div style="padding: 16px 0">
+          <div class="proj-full-card">
+            <img
+              class="proj-full-img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC10XOJsk__eCMyZm-tnQG13wrYf6SB39fqsyAShGKmQ1UmofNmK4s8psqVjiqFFWS055xWcsy1KnYSYcNyAhYlBbyBa9apt4U9UX1esiM6SNwrRLHP1-6NJmK3tu9LrdX4QfYwW_tz6D0v3yTOW7c7RkFtqmdS2bSYYJDunbeF6ztYdZVMtoVw8wN1pQuKMldbRsdq3XKULStydeIBZ7zEbxLx4KuV1EnXP1APw04WjpryxfSU791hv5Oc9cnrGkB5QVLxRAQNKI8"
+              alt="Paddy"
+            />
+            <div class="proj-full-body">
+              <div class="proj-full-top">
+                <div class="proj-full-name">Monsoon Paddy Cycle</div>
+                <span class="proj-status status-open">Active</span>
+              </div>
+              <div class="proj-meta">
+                <span>📍 Bogura</span>
+                <span>🌾 Agriculture</span>
+                <span>150 days left</span>
+              </div>
+              <div class="proj-progress-wrap">
+                <div class="proj-progress-fill" style="width: 82%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 11px;
+                  color: #9ca3af;
+                  font-weight: 600;
+                  margin-top: 4px;
+                "
+              >
+                82% of ৳12,00,000 raised
+              </div>
+              <div class="proj-full-footer">
+                <div>
+                  <div
+                    class="proj-roi-lbl"
+                    style="font-size: 10px; color: #9ca3af"
+                  >
+                    Your Investment
+                  </div>
+                  <div
+                    style="
+                      font-size: 15px;
+                      font-weight: 800;
+                      color: var(--green-900);
+                    "
+                  >
+                    ৳25,000
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="proj-roi-lbl"
+                    style="font-size: 10px; color: #9ca3af"
+                  >
+                    Expected Return
+                  </div>
+                  <div
+                    style="
+                      font-size: 15px;
+                      font-weight: 800;
+                      color: var(--green-900);
+                    "
+                  >
+                    ৳28,125
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-full-card">
+            <img
+              class="proj-full-img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzI2DbPCP4ezCvVTLSDKOwqpl4cqlzo90b13bMxZGgLUus-J3M6nFctxQ2hn2LSphr58Z-QC3TC_mpMxcVnlBvtnkU5j5LiKarMAXRxY2BhCPmQeXqE3h84Eq4CeokI_6AwtpoUBLJD1RrIv0Sioy499g2Bgkx_Gh8EqT4FCvjQPDTLi86i-cR4bg3Mvi3TV6C176fFDI51osjrpsFvjflPZL6RTOm8nWgPYwhZTWFw7xJ43OeeEmw3nlzNTxBAdZKyssUdG1DR7E"
+              alt="Fish"
+            />
+            <div class="proj-full-body">
+              <div class="proj-full-top">
+                <div class="proj-full-name">Bio-Fish Hatchery</div>
+                <span class="proj-status status-closed">Completed</span>
+              </div>
+              <div class="proj-meta">
+                <span>📍 Sylhet</span>
+                <span>🐟 Fishery</span>
+                <span>Matured</span>
+              </div>
+              <div class="proj-progress-wrap">
+                <div class="proj-progress-fill" style="width: 100%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 11px;
+                  color: #9ca3af;
+                  font-weight: 600;
+                  margin-top: 4px;
+                "
+              >
+                Fully funded & closed
+              </div>
+              <div class="proj-full-footer">
+                <div>
+                  <div
+                    class="proj-roi-lbl"
+                    style="font-size: 10px; color: #9ca3af"
+                  >
+                    Invested
+                  </div>
+                  <div
+                    style="
+                      font-size: 15px;
+                      font-weight: 800;
+                      color: var(--green-900);
+                    "
+                  >
+                    ৳50,000
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="proj-roi-lbl"
+                    style="font-size: 10px; color: #9ca3af"
+                  >
+                    Returns Received
+                  </div>
+                  <div
+                    style="font-size: 15px; font-weight: 800; color: #16a34a"
+                  >
+                    ৳59,100 ✓
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end projects -->
+
+      <!-- ════════════════════ SCREEN: PROFILE ════════════════════ -->
+      <div class="screen" id="screen-profile">
+        <div class="profile-hero">
+          <div class="avatar-ring">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT4OFNEwF0T3Mq8n6p24v2UHizMyiS6mqn_6h7WugaAqD-GaGHDQI2F7dWzq93pw23JO7Z_BlaIATdIFYPYRumoDoukFm8hcroPfiEJkHvyo0EAEQOAOuUZZdebIAfmzo_b5l64YYauWyzgi3Vm9mCWtwF3pH1Pm8L2KxNMi1n1xExeFupFSW4THJ0eq5H9uq-9XmpQ_OquEUtxVvPR9i1I67Fe7A85fAIsH1tGYZXkwpi2FtZUwgHCClr57Q13ZARN9ZZ2qdqYIM"
+              alt="Profile"
+            />
+          </div>
+          <div class="profile-name">Anwar Hossain</div>
+          <div class="profile-handle">@anwar.investor · Dhaka</div>
+          <div class="profile-stats" style="width: 100%; margin-top: 20px">
+            <div class="pstat">
+              <div class="pstat-val">12</div>
+              <div class="pstat-lbl">Investments</div>
+            </div>
+            <div class="pstat">
+              <div class="pstat-val">৳3.2L</div>
+              <div class="pstat-lbl">Total Invested</div>
+            </div>
+            <div class="pstat">
+              <div class="pstat-val">14.8%</div>
+              <div class="pstat-lbl">Avg ROI</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-menu">
+          <div class="menu-item">
+            <div class="menu-icon" style="background: #dcfce7">
+              <span
+                class="material-symbols-rounded"
+                style="color: var(--green-800)"
+                >account_circle</span
+              >
+            </div>
+            <span class="menu-label">Edit Profile</span>
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon" style="background: #dbeafe">
+              <span class="material-symbols-rounded" style="color: #1d4ed8"
+                >wallet</span
+              >
+            </div>
+            <span class="menu-label">My Wallet</span>
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon" style="background: #fef3c7">
+              <span class="material-symbols-rounded" style="color: #b45309"
+                >notifications</span
+              >
+            </div>
+            <span class="menu-label">Notifications</span>
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon" style="background: #f3e8ff">
+              <span class="material-symbols-rounded" style="color: #7e22ce"
+                >bar_chart</span
+              >
+            </div>
+            <span class="menu-label">Impact Report</span>
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon" style="background: #fce7f3">
+              <span class="material-symbols-rounded" style="color: #be185d"
+                >help</span
+              >
+            </div>
+            <span class="menu-label">Help & Support</span>
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon" style="background: #fee2e2">
+              <span class="material-symbols-rounded" style="color: #dc2626"
+                >logout</span
+              >
+            </div>
+            <span class="menu-label" style="color: #dc2626">Log Out</span>
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end profile -->
+
+      <!-- ════════════════════ BOTTOM TAB BAR ════════════════════ -->
+      <nav class="tabbar">
+        <button
+          class="tab-item active"
+          id="tab-home"
+          onclick="switchTab('home')"
+        >
+          <div class="tab-icon">
+            <span class="material-symbols-rounded">home</span>
+          </div>
+          <span class="tab-label">Home</span>
+        </button>
+        <button
+          class="tab-item"
+          id="tab-marketplace"
+          onclick="switchTab('marketplace')"
+        >
+          <div class="tab-icon">
+            <span class="material-symbols-rounded">storefront</span>
+          </div>
+          <span class="tab-label">Market</span>
+        </button>
+        <button
+          class="tab-item"
+          id="tab-projects"
+          onclick="switchTab('projects')"
+        >
+          <div class="tab-icon">
+            <span class="material-symbols-rounded">grass</span>
+          </div>
+          <span class="tab-label">Projects</span>
+        </button>
+        <button
+          class="tab-item"
+          id="tab-profile"
+          onclick="switchTab('profile')"
+        >
+          <div class="tab-icon">
+            <span class="material-symbols-rounded">person</span>
+          </div>
+          <span class="tab-label">Profile</span>
+        </button>
+      </nav>
+    </div>
+    <!-- end phone-shell -->
+
+    <script>
+      function switchTab(name) {
+        document
+          .querySelectorAll(".screen")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-item")
+          .forEach((t) => t.classList.remove("active"));
+        document.getElementById("screen-" + name).classList.add("active");
+        document.getElementById("tab-" + name).classList.add("active");
+      }
+
+      // Filter chip toggle in marketplace
+      document.querySelectorAll(".fchip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          document
+            .querySelectorAll(".fchip")
+            .forEach((c) => c.classList.remove("on"));
+          chip.classList.add("on");
+        });
+      });
+
+      // Home hero slideshow
+      const heroSlides = document.querySelectorAll(".hero-slide");
+      const heroDots = document.querySelectorAll(".hero-dot");
+      let heroIndex = 0;
+      function setHeroSlide(index) {
+        heroSlides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+        heroDots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+      if (heroSlides.length > 1) {
+        setInterval(() => {
+          heroIndex = (heroIndex + 1) % heroSlides.length;
+          setHeroSlide(heroIndex);
+        }, 4000);
+      }
+    </script>
+  </body>
+</html>
