@@ -1129,6 +1129,612 @@
         border-top: 1px solid #f8fafc;
       }
 
+      /* ─── WOMEN EMPOWERMENT MODULE ─── */
+      .women-module {
+        margin: 0 16px 22px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #fff6fb 0%, #ffffff 100%);
+        border: 1px solid rgba(157, 74, 138, 0.16);
+        box-shadow: 0 10px 24px rgba(124, 61, 110, 0.08);
+      }
+      .women-module-head {
+        padding: 18px 16px 14px;
+        background: linear-gradient(135deg, #7c3d6e 0%, #5a2a51 100%);
+        color: #fff;
+      }
+      .women-module-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .women-module-title {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+      .women-module-sub {
+        margin-top: 6px;
+        font-size: 12px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .women-kpi-grid {
+        padding: 14px 16px 6px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .women-kpi-card {
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid rgba(157, 74, 138, 0.12);
+        padding: 12px;
+      }
+      .women-kpi-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #7c3d6e;
+        font-weight: 700;
+      }
+      .women-kpi-value {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: 800;
+        color: #1f2937;
+      }
+      .women-kpi-note {
+        margin-top: 3px;
+        font-size: 10px;
+        color: #6b7280;
+      }
+      .women-skill-box,
+      .women-products-box {
+        margin: 8px 16px 14px;
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid rgba(157, 74, 138, 0.12);
+        padding: 14px;
+      }
+      .women-box-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .women-box-head h3 {
+        font-size: 14px;
+        font-weight: 800;
+        color: #1f2937;
+      }
+      .women-box-head span {
+        font-size: 10px;
+        font-weight: 700;
+        color: #9d4a8a;
+        text-transform: uppercase;
+      }
+      .women-skill-list {
+        display: grid;
+        gap: 10px;
+      }
+      .women-skill-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+      .women-skill-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: #374151;
+      }
+      .women-skill-val {
+        font-size: 11px;
+        font-weight: 700;
+        color: #9d4a8a;
+      }
+      .women-skill-bar {
+        height: 8px;
+        border-radius: 999px;
+        background: #f3e8ff;
+        overflow: hidden;
+      }
+      .women-skill-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #9d4a8a 0%, #e83e8c 100%);
+      }
+      .women-stories-scroll,
+      .women-products-scroll,
+      .dashboard-updates-scroll,
+      .reports-scroll,
+      .forecast-scroll,
+      .ai-signal-scroll {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 0 16px 12px;
+        scroll-snap-type: x mandatory;
+      }
+      .women-stories-scroll::-webkit-scrollbar,
+      .women-products-scroll::-webkit-scrollbar,
+      .dashboard-updates-scroll::-webkit-scrollbar,
+      .reports-scroll::-webkit-scrollbar,
+      .forecast-scroll::-webkit-scrollbar,
+      .ai-signal-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .women-story-card {
+        min-width: 220px;
+        scroll-snap-align: start;
+        background: linear-gradient(160deg, #fff 0%, #fdf2f8 100%);
+        border-radius: 18px;
+        border: 1px solid rgba(232, 62, 140, 0.14);
+        padding: 14px;
+      }
+      .women-story-person {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .women-story-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #9d4a8a, #e83e8c);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 800;
+      }
+      .women-story-name {
+        font-size: 12px;
+        font-weight: 800;
+        color: #1f2937;
+      }
+      .women-story-role {
+        font-size: 10px;
+        color: #9d4a8a;
+        font-weight: 700;
+      }
+      .women-story-quote {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #4b5563;
+      }
+      .women-product-card {
+        min-width: 188px;
+        scroll-snap-align: start;
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(157, 74, 138, 0.12);
+      }
+      .women-product-card img {
+        width: 100%;
+        height: 108px;
+        object-fit: cover;
+      }
+      .women-product-body {
+        padding: 12px;
+      }
+      .women-product-maker {
+        font-size: 10px;
+        color: #6b7280;
+        margin-bottom: 4px;
+      }
+      .women-product-name {
+        font-size: 13px;
+        font-weight: 800;
+        color: #1f2937;
+      }
+      .women-product-foot {
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .women-product-price {
+        font-size: 13px;
+        font-weight: 800;
+        color: #9d4a8a;
+      }
+      .women-product-type {
+        font-size: 10px;
+        font-weight: 700;
+        color: #9d4a8a;
+        background: #f5e6f2;
+        padding: 4px 7px;
+        border-radius: 999px;
+      }
+
+      /* ─── MARKET AI MODULE ─── */
+      .market-ai-box {
+        margin: 14px 16px 4px;
+        background: linear-gradient(180deg, #f0f7f4 0%, #ffffff 100%);
+        border: 1px solid rgba(15, 82, 56, 0.12);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+      .market-ai-head {
+        padding: 16px;
+        background: linear-gradient(135deg, #0f5238 0%, #166534 100%);
+        color: #fff;
+      }
+      .market-ai-kicker {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .market-ai-head h2 {
+        margin-top: 6px;
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .market-ai-head p {
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .market-ai-controls {
+        padding: 14px 16px 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .mini-control {
+        display: grid;
+        gap: 4px;
+      }
+      .mini-control label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #4b5563;
+        text-transform: uppercase;
+      }
+      .mini-control select {
+        height: 38px;
+        border-radius: 12px;
+        border: 1.5px solid #d1d5db;
+        background: #fff;
+        padding: 0 10px;
+        font:
+          600 12px "Plus Jakarta Sans",
+          sans-serif;
+        color: #1f2937;
+      }
+      .market-ai-run {
+        grid-column: 1 / -1;
+        height: 42px;
+        border: none;
+        border-radius: 12px;
+        background: var(--green-900);
+        color: #fff;
+        font:
+          700 12px "Plus Jakarta Sans",
+          sans-serif;
+      }
+      .market-ai-stats {
+        padding: 0 16px 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .market-ai-stat {
+        background: #fff;
+        border: 1px solid rgba(15, 82, 56, 0.1);
+        border-radius: 16px;
+        padding: 12px;
+      }
+      .market-ai-stat h4 {
+        font-size: 10px;
+        font-weight: 700;
+        color: #6b7280;
+        text-transform: uppercase;
+      }
+      .market-ai-stat strong {
+        display: block;
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .market-ai-stat span {
+        display: block;
+        margin-top: 4px;
+        font-size: 10px;
+        color: #15803d;
+        font-weight: 700;
+      }
+      .market-ai-section-head {
+        padding: 0 16px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .market-ai-section-head h3 {
+        font-size: 14px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .market-ai-section-head span {
+        font-size: 10px;
+        font-weight: 700;
+        color: #15803d;
+      }
+      .ai-signal-card {
+        min-width: 220px;
+        scroll-snap-align: start;
+        border-radius: 18px;
+        padding: 14px;
+        border-left: 4px solid transparent;
+      }
+      .ai-signal-card.buy {
+        background: #f0fdf4;
+        border-color: #22c55e;
+      }
+      .ai-signal-card.hold {
+        background: #fffbeb;
+        border-color: #f59e0b;
+      }
+      .ai-signal-card.sell {
+        background: #fef2f2;
+        border-color: #ef4444;
+      }
+      .ai-signal-label {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
+      }
+      .ai-signal-card.buy .ai-signal-label { color: #15803d; }
+      .ai-signal-card.hold .ai-signal-label { color: #b45309; }
+      .ai-signal-card.sell .ai-signal-label { color: #dc2626; }
+      .ai-signal-title {
+        font-size: 13px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .ai-signal-text {
+        margin-top: 5px;
+        font-size: 11px;
+        line-height: 1.6;
+        color: #4b5563;
+      }
+      .ai-signal-conf {
+        margin-top: 7px;
+        font-size: 10px;
+        font-weight: 700;
+        color: #6b7280;
+      }
+      .forecast-card {
+        min-width: 188px;
+        scroll-snap-align: start;
+        background: #fff;
+        border: 1px solid rgba(15, 82, 56, 0.1);
+        border-radius: 16px;
+        padding: 12px;
+      }
+      .forecast-card h4 {
+        font-size: 12px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .forecast-card .forecast-price {
+        margin-top: 6px;
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--green-900);
+      }
+      .forecast-card .forecast-meta,
+      .risk-line,
+      .season-chip {
+        font-size: 10px;
+      }
+      .forecast-card .forecast-meta {
+        margin-top: 4px;
+        color: #6b7280;
+      }
+      .risk-stack {
+        padding: 0 16px 12px;
+        display: grid;
+        gap: 10px;
+      }
+      .risk-line strong {
+        display: block;
+        font-size: 12px;
+        color: #111827;
+      }
+      .risk-meter {
+        margin-top: 4px;
+        height: 7px;
+        border-radius: 999px;
+        background: #e5e7eb;
+        overflow: hidden;
+      }
+      .risk-meter-fill {
+        height: 100%;
+        border-radius: 999px;
+      }
+      .season-chip-row {
+        padding: 0 16px 16px;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+      }
+      .season-chip-row::-webkit-scrollbar {
+        display: none;
+      }
+      .season-chip {
+        flex-shrink: 0;
+        padding: 8px 10px;
+        border-radius: 12px;
+        font-weight: 700;
+        color: #374151;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+      }
+
+      /* ─── PROJECT DASHBOARD MODULE ─── */
+      .project-summary-grid {
+        padding: 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .project-summary-card {
+        background: #fff;
+        border: 1px solid rgba(15, 82, 56, 0.1);
+        border-radius: 18px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      }
+      .project-summary-card h4 {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+      .project-summary-card strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 18px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .project-summary-card span {
+        display: block;
+        margin-top: 4px;
+        font-size: 10px;
+        color: #15803d;
+        font-weight: 700;
+      }
+      .dashboard-panel {
+        margin: 0 16px 16px;
+        background: #fff;
+        border: 1px solid rgba(15, 82, 56, 0.1);
+        border-radius: 18px;
+        padding: 14px;
+      }
+      .dashboard-panel-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .dashboard-panel-head h3 {
+        font-size: 14px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .dashboard-panel-head span {
+        font-size: 10px;
+        font-weight: 700;
+        color: #6b7280;
+      }
+      .track-mini-list {
+        display: grid;
+        gap: 10px;
+      }
+      .track-mini-card {
+        border-radius: 16px;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        padding: 12px;
+      }
+      .track-mini-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+      .track-mini-name {
+        font-size: 12px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .track-mini-badge {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 4px 7px;
+        border-radius: 999px;
+      }
+      .track-mini-badge.on-track {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      .track-mini-badge.watch {
+        background: #fee2e2;
+        color: #b91c1c;
+      }
+      .track-mini-meta {
+        margin-top: 6px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: #6b7280;
+      }
+      .track-mini-bar {
+        margin-top: 8px;
+        height: 7px;
+        border-radius: 999px;
+        background: #e5e7eb;
+        overflow: hidden;
+      }
+      .track-mini-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #0f5238, #34d399);
+      }
+      .dashboard-update-card,
+      .report-mini-card {
+        min-width: 210px;
+        scroll-snap-align: start;
+        border-radius: 16px;
+        padding: 13px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+      }
+      .dashboard-update-card h4,
+      .report-mini-card h4 {
+        font-size: 12px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .dashboard-update-card p,
+      .report-mini-card p {
+        margin-top: 5px;
+        font-size: 11px;
+        line-height: 1.5;
+        color: #6b7280;
+      }
+      .report-link {
+        margin-top: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--green-800);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
       /* ─── AUTH OVERLAY ─── */
       .auth-overlay {
         position: absolute;
@@ -1454,6 +2060,159 @@
           <div class="stat-item">
             <div class="stat-val">14.2%</div>
             <div class="stat-lbl">Avg ROI</div>
+          </div>
+        </div>
+
+        <div class="women-module">
+          <div class="women-module-head">
+            <span class="women-module-badge">
+              <span class="material-symbols-rounded">female</span>
+              Women Empowerment
+            </span>
+            <div class="women-module-title">
+              Investment creating income, training, and dignity for rural women
+            </div>
+            <div class="women-module-sub">
+              A mobile version of the women dashboard with live impact metrics,
+              skills progress, and featured artisan products.
+            </div>
+          </div>
+
+          <div class="women-kpi-grid">
+            <div class="women-kpi-card">
+              <div class="women-kpi-label">Women Enrolled</div>
+              <div class="women-kpi-value">1,240</div>
+              <div class="women-kpi-note">Active in 12 districts</div>
+            </div>
+            <div class="women-kpi-card">
+              <div class="women-kpi-label">Avg Income</div>
+              <div class="women-kpi-value">৳8,450</div>
+              <div class="women-kpi-note">Up 214% from before</div>
+            </div>
+            <div class="women-kpi-card">
+              <div class="women-kpi-label">Training Completed</div>
+              <div class="women-kpi-value">892</div>
+              <div class="women-kpi-note">7 skill programs running</div>
+            </div>
+            <div class="women-kpi-card">
+              <div class="women-kpi-label">Marketplace Items</div>
+              <div class="women-kpi-value">3,480</div>
+              <div class="women-kpi-note">+340 this month</div>
+            </div>
+          </div>
+
+          <div class="women-skill-box">
+            <div class="women-box-head">
+              <h3>Skills Training Progress</h3>
+              <span>Live</span>
+            </div>
+            <div class="women-skill-list">
+              <div>
+                <div class="women-skill-top">
+                  <div class="women-skill-name">Nakshi Stitching</div>
+                  <div class="women-skill-val">92%</div>
+                </div>
+                <div class="women-skill-bar"><div class="women-skill-fill" style="width: 92%"></div></div>
+              </div>
+              <div>
+                <div class="women-skill-top">
+                  <div class="women-skill-name">Jute Weaving</div>
+                  <div class="women-skill-val">84%</div>
+                </div>
+                <div class="women-skill-bar"><div class="women-skill-fill" style="width: 84%"></div></div>
+              </div>
+              <div>
+                <div class="women-skill-top">
+                  <div class="women-skill-name">Organic Farming</div>
+                  <div class="women-skill-val">76%</div>
+                </div>
+                <div class="women-skill-bar"><div class="women-skill-fill" style="width: 76%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header">
+            <span class="section-title">Women Impact Stories</span>
+          </div>
+          <div class="women-stories-scroll">
+            <div class="women-story-card">
+              <div class="women-story-person">
+                <div class="women-story-avatar">F</div>
+                <div>
+                  <div class="women-story-name">Fatema Begum</div>
+                  <div class="women-story-role">Nakshi Artisan · Rajshahi</div>
+                </div>
+              </div>
+              <div class="women-story-quote">
+                "My income grew enough to send both daughters back to school and expand our home workshop."
+              </div>
+            </div>
+            <div class="women-story-card">
+              <div class="women-story-person">
+                <div class="women-story-avatar">R</div>
+                <div>
+                  <div class="women-story-name">Roksana Khatun</div>
+                  <div class="women-story-role">Jute Maker · Tangail</div>
+                </div>
+              </div>
+              <div class="women-story-quote">
+                "The marketplace removed middlemen. We now sell directly and keep more of the value we create."
+              </div>
+            </div>
+            <div class="women-story-card">
+              <div class="women-story-person">
+                <div class="women-story-avatar">S</div>
+                <div>
+                  <div class="women-story-name">Sumaiya Parvin</div>
+                  <div class="women-story-role">Farmer · Bogra</div>
+                </div>
+              </div>
+              <div class="women-story-quote">
+                "Training in better production and packaging helped us win repeat buyers for our premium rice."
+              </div>
+            </div>
+          </div>
+
+          <div class="women-products-box">
+            <div class="women-box-head">
+              <h3>Featured Women Marketplace</h3>
+              <span>Shop-ready</span>
+            </div>
+            <div class="women-products-scroll">
+              <div class="women-product-card">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I-lcZEhlYHYXXNmJe4g5-WXPnSIIGQlSn0Dpb2Zvuy2Sb3QfOqSRtntc389vIUY5yl2YvGcgZm29EJ-yolt3YFsFXW3nlgmkcq3z_Ih5uMoLXT-AJvbo9wNUrVbvFHqXjF_Ok6xVetABGuRjJvf8jplrpyzQoVMK2CEXHand-cnBdIGtHRDZZYn8uywOgzkIrt-l5lvtexPElSzZHY33pztDqv83ZbKjzJLzHLB0MqqrQ89QelGCF55oFrctvdB9xsXKEjdcqaA" alt="Nakshi quilt" />
+                <div class="women-product-body">
+                  <div class="women-product-maker">Fatema Begum · Rajshahi</div>
+                  <div class="women-product-name">Nakshi Kantha Quilt</div>
+                  <div class="women-product-foot">
+                    <span class="women-product-price">৳2,800</span>
+                    <span class="women-product-type">Handicraft</span>
+                  </div>
+                </div>
+              </div>
+              <div class="women-product-card">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5AisnMwM4WqqwyLslJR4OlraBHvkEa0CYn50SGKbfxkW7Y5Qe26GpSs-qoGo3wKCu57hAp6JtAxU33txWidrKvnM0CmTygxn5hMjc2Znn4va4fkR5omJJUVLNciOQfVUVjKdED8gvF1WygmLCeH-GpOsdvOxQVtfBHMiTo_jWUyrwSWXDHpDghgE-xdvEK29vffBvZ6CbBNCrmD7sjJuum5iy_GC4sUDXjiiipIc3Sw9DGZ55S7VASBj8RNdMDYTITI7qK__4Rk" alt="Jute basket" />
+                <div class="women-product-body">
+                  <div class="women-product-maker">Roksana Khatun · Tangail</div>
+                  <div class="women-product-name">Jute Basket Set</div>
+                  <div class="women-product-foot">
+                    <span class="women-product-price">৳950</span>
+                    <span class="women-product-type">Craft</span>
+                  </div>
+                </div>
+              </div>
+              <div class="women-product-card">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuADMxpkzLa2L2_d3vI80sFF5bk1YchzO51zZLKud7Sxrlv4S-_UV7yMCERC7EXqS2-TP2RznqacRUnCcPwjDX8kWSZycKDBbTNNcCPAPKybHsnPxic2SEP9YfQ3D3MsvO9-bvvk7LFDR7-oPyx6ctk3H4gSbJuri9gugLF14zOma-sV_WKMZZ4cSYMbY16HnIR85uEg-BxCqe8iuoGvuINp6OgYfv6WeRRBpZJfRuOAxa33KxF9DNMsxX0zB0esWdkKUB2GpWWleEg" alt="Organic rice" />
+                <div class="women-product-body">
+                  <div class="women-product-maker">Sumaiya Parvin · Bogra</div>
+                  <div class="women-product-name">Organic Aromatic Rice</div>
+                  <div class="women-product-foot">
+                    <span class="women-product-price">৳580</span>
+                    <span class="women-product-type">Farming</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1868,6 +2627,88 @@
           <button class="fchip">Fishery</button>
           <button class="fchip">Artisan</button>
         </div>
+
+        <div class="market-ai-box">
+          <div class="market-ai-head">
+            <div class="market-ai-kicker">AI Market Analysis</div>
+            <h2>Smart price, demand, and risk signals</h2>
+            <p>
+              A compact mobile version of the Market AI page with forecast,
+              confidence signals, and seasonality cues.
+            </p>
+          </div>
+
+          <div class="market-ai-controls">
+            <div class="mini-control">
+              <label for="ai-crop-select">Crop</label>
+              <select id="ai-crop-select">
+                <option value="paddy">Paddy</option>
+                <option value="poultry">Poultry</option>
+                <option value="fish">Fish</option>
+                <option value="jute">Jute</option>
+              </select>
+            </div>
+            <div class="mini-control">
+              <label for="ai-horizon-select">Horizon</label>
+              <select id="ai-horizon-select">
+                <option value="30">30 days</option>
+                <option value="60">60 days</option>
+                <option value="90">90 days</option>
+              </select>
+            </div>
+            <button class="market-ai-run" id="run-ai-btn" type="button">
+              Run AI Analysis
+            </button>
+          </div>
+
+          <div class="market-ai-stats">
+            <div class="market-ai-stat">
+              <h4>Current Price</h4>
+              <strong id="ai-current-price">৳1,840</strong>
+              <span id="ai-current-change">+4.2% weekly</span>
+            </div>
+            <div class="market-ai-stat">
+              <h4>AI Forecast</h4>
+              <strong id="ai-forecast-price">৳1,980</strong>
+              <span id="ai-forecast-change">+7.6% in 30d</span>
+            </div>
+            <div class="market-ai-stat">
+              <h4>Demand</h4>
+              <strong id="ai-demand-label">High</strong>
+              <span id="ai-demand-score">82% confidence</span>
+            </div>
+            <div class="market-ai-stat">
+              <h4>Risk Score</h4>
+              <strong id="ai-risk-label">Low</strong>
+              <span id="ai-risk-score">18 / 100</span>
+            </div>
+          </div>
+
+          <div class="market-ai-section-head">
+            <h3>AI Investment Signals</h3>
+            <span id="ai-engine-label">ML engine active</span>
+          </div>
+          <div class="ai-signal-scroll" id="ai-signal-list"></div>
+
+          <div class="market-ai-section-head">
+            <h3>Weekly Forecast</h3>
+            <span id="ai-forecast-label">30 day horizon</span>
+          </div>
+          <div class="forecast-scroll" id="forecast-list"></div>
+
+          <div class="market-ai-section-head">
+            <h3>Risk Assessment</h3>
+            <span>Live score</span>
+          </div>
+          <div class="risk-stack" id="risk-stack"></div>
+
+          <div class="market-ai-section-head">
+            <h3>Seasonality</h3>
+            <span>AI detected</span>
+          </div>
+          <div class="season-chip-row" id="season-chip-row"></div>
+        </div>
+
         <div class="mkt-grid">
           <div class="mkt-card">
             <div class="mkt-img">
@@ -1955,6 +2796,62 @@
           <h1>My Projects</h1>
           <p>Track your active investments</p>
         </div>
+        <div class="project-summary-grid">
+          <div class="project-summary-card">
+            <h4>Total Invested</h4>
+            <strong>৳19.8L</strong>
+            <span>Across 5 active projects</span>
+          </div>
+          <div class="project-summary-card">
+            <h4>Avg Completion</h4>
+            <strong>66%</strong>
+            <span>Live dashboard average</span>
+          </div>
+          <div class="project-summary-card">
+            <h4>Reports This Month</h4>
+            <strong>12</strong>
+            <span>Field + finance updates</span>
+          </div>
+          <div class="project-summary-card">
+            <h4>Attention Needed</h4>
+            <strong>2</strong>
+            <span>Projects under review</span>
+          </div>
+        </div>
+
+        <div class="dashboard-panel">
+          <div class="dashboard-panel-head">
+            <h3>Project Tracking Dashboard</h3>
+            <span>Investor view</span>
+          </div>
+          <div class="track-mini-list">
+            <div class="track-mini-card">
+              <div class="track-mini-top">
+                <div class="track-mini-name">Monsoon Paddy Harvest</div>
+                <div class="track-mini-badge on-track">On Track</div>
+              </div>
+              <div class="track-mini-meta"><span>Mymensingh</span><span>90% complete</span></div>
+              <div class="track-mini-bar"><div class="track-mini-fill" style="width: 90%"></div></div>
+            </div>
+            <div class="track-mini-card">
+              <div class="track-mini-top">
+                <div class="track-mini-name">Sustainable Poultry</div>
+                <div class="track-mini-badge on-track">On Track</div>
+              </div>
+              <div class="track-mini-meta"><span>Bogra</span><span>65% complete</span></div>
+              <div class="track-mini-bar"><div class="track-mini-fill" style="width: 65%"></div></div>
+            </div>
+            <div class="track-mini-card">
+              <div class="track-mini-top">
+                <div class="track-mini-name">Sylhet Bio-Fish Hatchery</div>
+                <div class="track-mini-badge watch">Needs Attention</div>
+              </div>
+              <div class="track-mini-meta"><span>Sylhet</span><span>42% complete</span></div>
+              <div class="track-mini-bar"><div class="track-mini-fill" style="width: 42%"></div></div>
+            </div>
+          </div>
+        </div>
+
         <div style="padding: 16px 0">
           <div class="proj-full-card">
             <img
@@ -2085,6 +2982,42 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <span class="section-title">Updates & Reports</span>
+        </div>
+        <div class="dashboard-updates-scroll">
+          <div class="dashboard-update-card">
+            <h4>Field inspection completed in Bogra poultry cluster</h4>
+            <p>2 hours ago · Quality score improved to 8.7/10 after feed and hygiene review.</p>
+          </div>
+          <div class="dashboard-update-card">
+            <h4>Monsoon paddy reached early harvest window</h4>
+            <p>Yesterday · Forecast revised upward by 6% after favorable weather conditions.</p>
+          </div>
+          <div class="dashboard-update-card">
+            <h4>Fish hatchery requested oxygen repair budget</h4>
+            <p>2 days ago · Admin and investor committee currently reviewing the emergency request.</p>
+          </div>
+        </div>
+
+        <div class="reports-scroll">
+          <div class="report-mini-card">
+            <h4>April Impact Snapshot</h4>
+            <p>Latest field performance report covering ROI trend, jobs created, and output quality.</p>
+            <span class="report-link">Download report</span>
+          </div>
+          <div class="report-mini-card">
+            <h4>Q1 Financial Summary</h4>
+            <p>Investor-ready summary of deployed capital, revenue realization, and expected returns.</p>
+            <span class="report-link">Download report</span>
+          </div>
+          <div class="report-mini-card">
+            <h4>Shariah Compliance Review</h4>
+            <p>Compliance note confirming asset-backed operations, transparent sharing, and audit status.</p>
+            <span class="report-link">Download report</span>
           </div>
         </div>
       </div>
@@ -2368,6 +3301,23 @@
       const otpInput = document.getElementById("otp-input");
       const otpVerifyBtn = document.getElementById("otp-verify-btn");
       const otpResendBtn = document.getElementById("otp-resend-btn");
+      const aiCropSelect = document.getElementById("ai-crop-select");
+      const aiHorizonSelect = document.getElementById("ai-horizon-select");
+      const runAiBtn = document.getElementById("run-ai-btn");
+      const aiCurrentPrice = document.getElementById("ai-current-price");
+      const aiCurrentChange = document.getElementById("ai-current-change");
+      const aiForecastPrice = document.getElementById("ai-forecast-price");
+      const aiForecastChange = document.getElementById("ai-forecast-change");
+      const aiDemandLabel = document.getElementById("ai-demand-label");
+      const aiDemandScore = document.getElementById("ai-demand-score");
+      const aiRiskLabel = document.getElementById("ai-risk-label");
+      const aiRiskScore = document.getElementById("ai-risk-score");
+      const aiEngineLabel = document.getElementById("ai-engine-label");
+      const aiForecastLabel = document.getElementById("ai-forecast-label");
+      const aiSignalList = document.getElementById("ai-signal-list");
+      const forecastList = document.getElementById("forecast-list");
+      const riskStack = document.getElementById("risk-stack");
+      const seasonChipRow = document.getElementById("season-chip-row");
 
       const profileNameText = document.getElementById("profile-name-text");
       const profileHandleText = document.getElementById("profile-handle-text");
@@ -2383,6 +3333,157 @@
       let authMode = "signup";
       let authState = loadAuthState();
       let requestedTabAfterAuth = null;
+
+      const marketAiData = {
+        paddy: {
+          currentPrice: 1840,
+          currentChange: "+4.2% weekly",
+          forecastBase: 1980,
+          forecastChange: "+7.6%",
+          demand: "High",
+          demandScore: 82,
+          riskLabel: "Low",
+          riskScore: 18,
+          signals: [
+            {
+              tone: "buy",
+              label: "Buy",
+              title: "Strong harvest momentum",
+              text: "Demand remains high in Mymensingh and Rajshahi with favorable short-term pricing.",
+              confidence: 87,
+            },
+            {
+              tone: "hold",
+              label: "Hold",
+              title: "Watch logistics cost",
+              text: "Transport margins may compress gains if fuel costs rise before peak distribution.",
+              confidence: 63,
+            },
+          ],
+          forecast: [
+            { week: "Week 1", price: 1885, meta: "Narrow upside band" },
+            { week: "Week 2", price: 1910, meta: "Demand acceleration" },
+            { week: "Week 3", price: 1955, meta: "Harvest premium" },
+          ],
+          risks: [
+            { title: "Weather volatility", score: 24, color: "#22c55e" },
+            { title: "Supply disruption", score: 32, color: "#f59e0b" },
+            { title: "Price correction", score: 18, color: "#22c55e" },
+          ],
+          seasons: ["Planting warm-up", "Harvest peak", "Festival demand", "Export stable"],
+        },
+        poultry: {
+          currentPrice: 312,
+          currentChange: "+2.9% weekly",
+          forecastBase: 328,
+          forecastChange: "+5.1%",
+          demand: "Steady",
+          demandScore: 74,
+          riskLabel: "Medium",
+          riskScore: 36,
+          signals: [
+            {
+              tone: "hold",
+              label: "Hold",
+              title: "Balanced feed-cost cycle",
+              text: "Returns remain attractive, but feed input costs suggest a disciplined entry strategy.",
+              confidence: 71,
+            },
+            {
+              tone: "buy",
+              label: "Buy",
+              title: "Urban demand recovery",
+              text: "Restaurant and retail orders point to stronger sales in the coming month.",
+              confidence: 68,
+            },
+          ],
+          forecast: [
+            { week: "Week 1", price: 316, meta: "Retail support" },
+            { week: "Week 2", price: 321, meta: "Feed pressure" },
+            { week: "Week 3", price: 328, meta: "Demand rebound" },
+          ],
+          risks: [
+            { title: "Feed inflation", score: 55, color: "#f59e0b" },
+            { title: "Disease exposure", score: 33, color: "#f59e0b" },
+            { title: "Demand contraction", score: 21, color: "#22c55e" },
+          ],
+          seasons: ["Ramadan demand", "Retail steady", "Input watch", "Holiday premium"],
+        },
+        fish: {
+          currentPrice: 1460,
+          currentChange: "+6.4% weekly",
+          forecastBase: 1545,
+          forecastChange: "+9.0%",
+          demand: "Very High",
+          demandScore: 88,
+          riskLabel: "Medium",
+          riskScore: 41,
+          signals: [
+            {
+              tone: "buy",
+              label: "Buy",
+              title: "Premium demand in Sylhet",
+              text: "Higher-value fish segments show strong consumption and favorable pricing support.",
+              confidence: 84,
+            },
+            {
+              tone: "sell",
+              label: "Caution",
+              title: "Maintenance risk elevated",
+              text: "Aeration and oxygen system reliability can sharply affect realized output.",
+              confidence: 59,
+            },
+          ],
+          forecast: [
+            { week: "Week 1", price: 1495, meta: "Supply tight" },
+            { week: "Week 2", price: 1520, meta: "Demand holds" },
+            { week: "Week 3", price: 1545, meta: "Premium phase" },
+          ],
+          risks: [
+            { title: "Equipment failure", score: 61, color: "#ef4444" },
+            { title: "Feed cost", score: 37, color: "#f59e0b" },
+            { title: "Market glut", score: 24, color: "#22c55e" },
+          ],
+          seasons: ["Monsoon lift", "Cold-chain watch", "Festival spike", "Export prep"],
+        },
+        jute: {
+          currentPrice: 810,
+          currentChange: "+3.3% weekly",
+          forecastBase: 872,
+          forecastChange: "+7.7%",
+          demand: "High",
+          demandScore: 79,
+          riskLabel: "Low",
+          riskScore: 22,
+          signals: [
+            {
+              tone: "buy",
+              label: "Buy",
+              title: "Eco-product momentum",
+              text: "Handmade jute goods are riding stronger domestic and export interest in sustainable packaging.",
+              confidence: 81,
+            },
+            {
+              tone: "hold",
+              label: "Hold",
+              title: "Capacity constraint",
+              text: "Training throughput needs to rise to meet larger order pipelines without delays.",
+              confidence: 66,
+            },
+          ],
+          forecast: [
+            { week: "Week 1", price: 824, meta: "Stable input cost" },
+            { week: "Week 2", price: 848, meta: "Bulk order flow" },
+            { week: "Week 3", price: 872, meta: "Export-ready demand" },
+          ],
+          risks: [
+            { title: "Order delays", score: 29, color: "#22c55e" },
+            { title: "Raw material variance", score: 34, color: "#f59e0b" },
+            { title: "Price compression", score: 19, color: "#22c55e" },
+          ],
+          seasons: ["Wedding demand", "Eco export push", "Craft fair lift", "Gift season"],
+        },
+      };
 
       function loadAuthState() {
         try {
@@ -2573,6 +3674,74 @@
         return true;
       }
 
+      function formatCurrency(value) {
+        return "৳" + Number(value).toLocaleString();
+      }
+
+      function renderMarketAi(animate = false) {
+        if (!aiCropSelect || !aiHorizonSelect) {
+          return;
+        }
+
+        const cropKey = aiCropSelect.value;
+        const horizon = Number(aiHorizonSelect.value);
+        const data = marketAiData[cropKey];
+        const horizonBoost = horizon === 60 ? 1.04 : horizon === 90 ? 1.08 : 1;
+        const forecastValue = Math.round(data.forecastBase * horizonBoost);
+
+        aiCurrentPrice.textContent = formatCurrency(data.currentPrice);
+        aiCurrentChange.textContent = data.currentChange;
+        aiForecastPrice.textContent = formatCurrency(forecastValue);
+        aiForecastChange.textContent = data.forecastChange + " in " + horizon + "d";
+        aiDemandLabel.textContent = data.demand;
+        aiDemandScore.textContent = data.demandScore + "% confidence";
+        aiRiskLabel.textContent = data.riskLabel;
+        aiRiskScore.textContent = data.riskScore + " / 100";
+        aiEngineLabel.textContent = animate ? "Analysis refreshed" : "ML engine active";
+        aiForecastLabel.textContent = horizon + " day horizon";
+
+        aiSignalList.innerHTML = data.signals
+          .map(
+            (signal) => `
+              <div class="ai-signal-card ${signal.tone}">
+                <div class="ai-signal-label">${signal.label}</div>
+                <div class="ai-signal-title">${signal.title}</div>
+                <div class="ai-signal-text">${signal.text}</div>
+                <div class="ai-signal-conf">Confidence ${signal.confidence}%</div>
+              </div>
+            `,
+          )
+          .join("");
+
+        forecastList.innerHTML = data.forecast
+          .map((item, index) => {
+            const adjustedPrice = Math.round(item.price * horizonBoost + index * 4);
+            return `
+              <div class="forecast-card">
+                <h4>${item.week}</h4>
+                <div class="forecast-price">${formatCurrency(adjustedPrice)}</div>
+                <div class="forecast-meta">${item.meta}</div>
+              </div>
+            `;
+          })
+          .join("");
+
+        riskStack.innerHTML = data.risks
+          .map(
+            (risk) => `
+              <div class="risk-line">
+                <strong>${risk.title}</strong>
+                <div class="risk-meter"><div class="risk-meter-fill" style="width:${risk.score}%; background:${risk.color}"></div></div>
+              </div>
+            `,
+          )
+          .join("");
+
+        seasonChipRow.innerHTML = data.seasons
+          .map((season) => `<div class="season-chip">${season}</div>`)
+          .join("");
+      }
+
       function switchTab(name) {
         if ((name === "projects" || name === "profile") && !currentUser()) {
           requestedTabAfterAuth = name;
@@ -2712,6 +3881,12 @@
         otpInput.value = otpInput.value.replace(/\D/g, "").slice(0, 6);
       });
 
+      if (aiCropSelect && aiHorizonSelect && runAiBtn) {
+        aiCropSelect.addEventListener("change", () => renderMarketAi(false));
+        aiHorizonSelect.addEventListener("change", () => renderMarketAi(false));
+        runAiBtn.addEventListener("click", () => renderMarketAi(true));
+      }
+
       document.querySelectorAll(".btn-invest").forEach((button) => {
         button.addEventListener("click", () => {
           requireAuth("invest in projects", () => {
@@ -2761,6 +3936,7 @@
         }, 4000);
       }
 
+      renderMarketAi(false);
       refreshAuthUI();
     </script>
   </body>
