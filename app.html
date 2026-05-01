@@ -2267,7 +2267,9 @@
           </div>
 
           <div class="auth-tabs">
-            <button class="auth-tab active" id="auth-tab-signup">Sign Up</button>
+            <button class="auth-tab active" id="auth-tab-signup">
+              Sign Up
+            </button>
             <button class="auth-tab" id="auth-tab-login">Login</button>
           </div>
 
@@ -2276,7 +2278,11 @@
           <form class="auth-form" id="auth-form" novalidate>
             <div class="auth-field" id="name-field">
               <label for="auth-name">Full Name</label>
-              <input id="auth-name" autocomplete="name" placeholder="Your full name" />
+              <input
+                id="auth-name"
+                autocomplete="name"
+                placeholder="Your full name"
+              />
             </div>
             <div class="auth-field">
               <label for="auth-email">Email</label>
@@ -2316,7 +2322,12 @@
               <div class="otp-hint">6-digit code</div>
             </div>
             <div class="otp-row">
-              <input id="otp-input" inputmode="numeric" maxlength="6" placeholder="123456" />
+              <input
+                id="otp-input"
+                inputmode="numeric"
+                maxlength="6"
+                placeholder="123456"
+              />
               <button id="otp-verify-btn" type="button">Verify</button>
             </div>
             <div class="otp-actions">
@@ -2360,13 +2371,18 @@
 
       const profileNameText = document.getElementById("profile-name-text");
       const profileHandleText = document.getElementById("profile-handle-text");
-      const profileVerifiedChip = document.getElementById("profile-verified-chip");
-      const verificationMenuRow = document.getElementById("verification-menu-row");
+      const profileVerifiedChip = document.getElementById(
+        "profile-verified-chip",
+      );
+      const verificationMenuRow = document.getElementById(
+        "verification-menu-row",
+      );
       const verifyStatusLabel = document.getElementById("verify-status-label");
       const logoutItem = document.getElementById("logout-item");
 
       let authMode = "signup";
       let authState = loadAuthState();
+      let requestedTabAfterAuth = null;
 
       function loadAuthState() {
         try {
@@ -2444,6 +2460,10 @@
         otpInput.value = "";
       }
 
+      function nextTabAfterAuth() {
+        return requestedTabAfterAuth || "profile";
+      }
+
       function startVerification(email, reasonText) {
         const otp = String(Math.floor(100000 + Math.random() * 900000));
         authState.pendingVerification = {
@@ -2456,7 +2476,7 @@
         otpWrap.classList.add("active");
         setAuthMessage(
           reasonText + " Demo OTP code: " + otp + " (valid for 5 minutes).",
-          "info"
+          "info",
         );
       }
 
@@ -2465,11 +2485,17 @@
         const code = otpInput.value.trim();
 
         if (!pending) {
-          setAuthMessage("No verification request found. Please log in again.", "error");
+          setAuthMessage(
+            "No verification request found. Please log in again.",
+            "error",
+          );
           return;
         }
         if (Date.now() > pending.expiresAt) {
-          setAuthMessage("Code expired. Tap Resend Code to get a new code.", "error");
+          setAuthMessage(
+            "Code expired. Tap Resend Code to get a new code.",
+            "error",
+          );
           return;
         }
         if (code !== pending.otp) {
@@ -2479,7 +2505,10 @@
 
         const user = authState.users[pending.email];
         if (!user) {
-          setAuthMessage("User record not found. Please sign up again.", "error");
+          setAuthMessage(
+            "User record not found. Please sign up again.",
+            "error",
+          );
           return;
         }
 
@@ -2494,7 +2523,9 @@
         refreshAuthUI();
         setTimeout(() => {
           closeAuth();
-          switchTab("profile");
+          const targetTab = nextTabAfterAuth();
+          requestedTabAfterAuth = null;
+          switchTab(targetTab);
         }, 500);
       }
 
@@ -2512,7 +2543,9 @@
           profileNameText.firstChild.textContent = user.fullName + " ";
           profileHandleText.textContent = handle;
 
-          profileVerifiedChip.style.display = user.verified ? "inline-flex" : "none";
+          profileVerifiedChip.style.display = user.verified
+            ? "inline-flex"
+            : "none";
           verificationMenuRow.style.display = "flex";
           verifyStatusLabel.textContent = user.verified
             ? "Verification: Completed"
@@ -2542,6 +2575,7 @@
 
       function switchTab(name) {
         if ((name === "projects" || name === "profile") && !currentUser()) {
+          requestedTabAfterAuth = name;
           openAuth("login");
           setAuthMessage("Please login to access this section.", "info");
           return;
@@ -2610,7 +2644,10 @@
             return;
           }
           if (authState.users[email]) {
-            setAuthMessage("This email is already registered. Please login.", "error");
+            setAuthMessage(
+              "This email is already registered. Please login.",
+              "error",
+            );
             applyAuthMode("login");
             authEmailInput.value = email;
             return;
@@ -2627,7 +2664,7 @@
           saveAuthState();
           startVerification(
             email,
-            "Account created. Verify your phone number to activate your account."
+            "Account created. Verify your phone number to activate your account.",
           );
           return;
         }
@@ -2641,7 +2678,7 @@
         if (!user.verified) {
           startVerification(
             email,
-            "Your account is not verified yet. Complete verification to continue."
+            "Your account is not verified yet. Complete verification to continue.",
           );
           return;
         }
@@ -2652,7 +2689,9 @@
         refreshAuthUI();
         setTimeout(() => {
           closeAuth();
-          switchTab("profile");
+          const targetTab = nextTabAfterAuth();
+          requestedTabAfterAuth = null;
+          switchTab(targetTab);
         }, 350);
       });
 
@@ -2663,7 +2702,10 @@
           setAuthMessage("No account awaiting verification.", "error");
           return;
         }
-        startVerification(pending.email, "A new verification code has been sent.");
+        startVerification(
+          pending.email,
+          "A new verification code has been sent.",
+        );
       });
 
       otpInput.addEventListener("input", () => {
@@ -2678,19 +2720,22 @@
         });
       });
 
-      document.querySelectorAll(".btn-primary, .btn-secondary").forEach((button) => {
-        button.addEventListener("click", () => {
-          requireAuth("continue", () => {
-            alert("You are authenticated. Continue to next onboarding step.");
+      document
+        .querySelectorAll(".btn-primary, .btn-secondary")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            requireAuth("continue", () => {
+              alert("You are authenticated. Continue to next onboarding step.");
+            });
           });
         });
-      });
 
       logoutItem.addEventListener("click", () => {
         if (!currentUser()) {
           return;
         }
         authState.currentUserEmail = null;
+        requestedTabAfterAuth = null;
         saveAuthState();
         refreshAuthUI();
         switchTab("home");
