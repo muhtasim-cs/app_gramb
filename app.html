@@ -2008,13 +2008,16 @@
         font-size: 10px;
         color: #6b7280;
       }
-      .women-program-list,
+      .women-program-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
       .women-member-scroll {
         display: flex;
         gap: 10px;
         overflow-x: auto;
       }
-      .women-program-list::-webkit-scrollbar,
       .women-member-scroll::-webkit-scrollbar {
         display: none;
       }
@@ -2025,6 +2028,10 @@
         border: 1px solid rgba(157, 74, 138, 0.12);
         border-radius: 18px;
         padding: 14px;
+      }
+      .women-program-card {
+        min-width: unset;
+        width: 100%;
       }
       .women-program-card h4,
       .women-member-card h4 {
@@ -2286,18 +2293,25 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <style>
       /* ══ AI MARKET ANALYSIS SCREEN ══ */
-      .tab-label { font-size: 9.5px; }
-      .tab-icon { width: 28px; height: 28px; }
-      .tab-item .tab-icon .material-symbols-rounded { font-size: 20px; }
+      .tab-label {
+        font-size: 9.5px;
+      }
+      .tab-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .tab-item .tab-icon .material-symbols-rounded {
+        font-size: 20px;
+      }
       .aim-hero {
         padding: 20px 20px 16px;
-        background: linear-gradient(135deg,#0b3d2e 0%,#1a6645 100%);
+        background: linear-gradient(135deg, #0b3d2e 0%, #1a6645 100%);
         color: #fff;
         flex-shrink: 0;
       }
       .aim-hero-badge {
         display: inline-block;
-        background: rgba(255,255,255,.15);
+        background: rgba(255, 255, 255, 0.15);
         color: #a7f3d0;
         font-size: 10px;
         font-weight: 700;
@@ -2306,8 +2320,17 @@
         border-radius: 20px;
         margin-bottom: 8px;
       }
-      .aim-hero-title { font-size: 20px; font-weight: 800; margin: 0 0 4px; line-height: 1.25; }
-      .aim-hero-sub { font-size: 12px; opacity: .7; margin: 0; }
+      .aim-hero-title {
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0 0 4px;
+        line-height: 1.25;
+      }
+      .aim-hero-sub {
+        font-size: 12px;
+        opacity: 0.7;
+        margin: 0;
+      }
       .aim-select-row {
         display: flex;
         align-items: center;
@@ -2338,7 +2361,11 @@
         border-radius: 8px;
         animation: aim-blink 1.4s infinite;
       }
-      @keyframes aim-blink { 50% { opacity: .4; } }
+      @keyframes aim-blink {
+        50% {
+          opacity: 0.4;
+        }
+      }
       .aim-kpi-row {
         display: flex;
         gap: 10px;
@@ -2349,23 +2376,44 @@
         background: #fff;
         border-radius: 14px;
         padding: 12px 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.07);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
         display: flex;
         flex-direction: column;
         gap: 2px;
       }
-      .aim-kpi-label { font-size: 9px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; }
-      .aim-kpi-val { font-size: 16px; font-weight: 800; color: #111; }
-      .aim-kpi-change { font-size: 11px; font-weight: 700; }
-      .aim-kpi-change.positive { color: #16a34a; }
-      .aim-kpi-change.negative { color: #dc2626; }
-      .aim-kpi-score { font-size: 11px; color: #6b7280; font-weight: 600; }
+      .aim-kpi-label {
+        font-size: 9px;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .aim-kpi-val {
+        font-size: 16px;
+        font-weight: 800;
+        color: #111;
+      }
+      .aim-kpi-change {
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .aim-kpi-change.positive {
+        color: #16a34a;
+      }
+      .aim-kpi-change.negative {
+        color: #dc2626;
+      }
+      .aim-kpi-score {
+        font-size: 11px;
+        color: #6b7280;
+        font-weight: 600;
+      }
       .aim-card {
         margin: 14px 16px 0;
         background: #fff;
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,.06);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
       }
       .aim-card-header {
         display: flex;
@@ -2374,11 +2422,15 @@
         padding: 14px 16px 10px;
         border-bottom: 1px solid #f3f4f6;
       }
-      .aim-card-title { font-size: 14px; font-weight: 700; color: #111; }
+      .aim-card-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #111;
+      }
       .aim-card-badge {
         font-size: 9px;
         font-weight: 700;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         background: #d1fae5;
         color: #065f46;
         padding: 3px 8px;
@@ -2389,7 +2441,10 @@
         position: relative;
         height: 180px;
       }
-      .aim-chart-wrap canvas { width: 100% !important; height: 100% !important; }
+      .aim-chart-wrap canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
       .aim-risk-layout {
         display: flex;
         align-items: center;
@@ -2402,22 +2457,55 @@
         height: 110px;
         flex-shrink: 0;
       }
-      .aim-risk-gauge-wrap canvas { width: 110px !important; height: 110px !important; }
+      .aim-risk-gauge-wrap canvas {
+        width: 110px !important;
+        height: 110px !important;
+      }
       .aim-risk-center {
         position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         flex-direction: column;
         align-items: center;
         pointer-events: none;
       }
-      .aim-risk-score { font-size: 22px; font-weight: 800; color: #111; }
-      .aim-risk-label { font-size: 10px; color: #6b7280; font-weight: 600; }
-      .aim-risk-bars { flex: 1; display: flex; flex-direction: column; gap: 8px; }
-      .aim-risk-bar-label { font-size: 11px; font-weight: 600; color: #374151; margin-bottom: 3px; display: flex; justify-content: space-between; }
-      .aim-risk-bar-track { background: #f3f4f6; border-radius: 6px; height: 7px; overflow: hidden; }
-      .aim-risk-bar-fill { height: 100%; border-radius: 6px; transition: width 1s ease; }
+      .aim-risk-score {
+        font-size: 22px;
+        font-weight: 800;
+        color: #111;
+      }
+      .aim-risk-label {
+        font-size: 10px;
+        color: #6b7280;
+        font-weight: 600;
+      }
+      .aim-risk-bars {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .aim-risk-bar-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 3px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .aim-risk-bar-track {
+        background: #f3f4f6;
+        border-radius: 6px;
+        height: 7px;
+        overflow: hidden;
+      }
+      .aim-risk-bar-fill {
+        height: 100%;
+        border-radius: 6px;
+        transition: width 1s ease;
+      }
       .aim-signal-item {
         padding: 12px 16px;
         border-bottom: 1px solid #f3f4f6;
@@ -2425,24 +2513,56 @@
         gap: 12px;
         align-items: flex-start;
       }
-      .aim-signal-item:last-child { border-bottom: none; }
+      .aim-signal-item:last-child {
+        border-bottom: none;
+      }
       .aim-signal-pill {
         font-size: 9px;
         font-weight: 800;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         padding: 4px 10px;
         border-radius: 20px;
         flex-shrink: 0;
         margin-top: 2px;
       }
-      .aim-signal-pill.buy { background: #dcfce7; color: #166534; }
-      .aim-signal-pill.hold { background: #fef9c3; color: #713f12; }
-      .aim-signal-pill.watch { background: #fee2e2; color: #991b1b; }
-      .aim-signal-body { flex: 1; }
-      .aim-signal-title { font-size: 13px; font-weight: 700; color: #111; margin-bottom: 3px; }
-      .aim-signal-text { font-size: 12px; color: #6b7280; line-height: 1.5; }
-      .aim-signal-conf { font-size: 10px; font-weight: 700; color: #16a34a; margin-top: 4px; }
-      .aim-season-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 16px; }
+      .aim-signal-pill.buy {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .aim-signal-pill.hold {
+        background: #fef9c3;
+        color: #713f12;
+      }
+      .aim-signal-pill.watch {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .aim-signal-body {
+        flex: 1;
+      }
+      .aim-signal-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 3px;
+      }
+      .aim-signal-text {
+        font-size: 12px;
+        color: #6b7280;
+        line-height: 1.5;
+      }
+      .aim-signal-conf {
+        font-size: 10px;
+        font-weight: 700;
+        color: #16a34a;
+        margin-top: 4px;
+      }
+      .aim-season-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 14px 16px;
+      }
       .aim-season-chip {
         background: #f0fdf4;
         border: 1.5px solid #bbf7d0;
@@ -3775,8 +3895,12 @@
       <div class="screen" id="screen-ai-market">
         <div class="aim-hero">
           <div class="aim-hero-badge">AI MARKET ANALYSIS</div>
-          <h1 class="aim-hero-title">Smart price, demand &amp; risk intelligence</h1>
-          <p class="aim-hero-sub">ML ensemble · MATLAB regression · Updated live</p>
+          <h1 class="aim-hero-title">
+            Smart price, demand &amp; risk intelligence
+          </h1>
+          <p class="aim-hero-sub">
+            ML ensemble · MATLAB regression · Updated live
+          </p>
         </div>
 
         <div class="aim-select-row">
@@ -3793,12 +3917,16 @@
           <div class="aim-kpi-card">
             <span class="aim-kpi-label">Current Price</span>
             <span class="aim-kpi-val" id="aim-current-price">৳1,840</span>
-            <span class="aim-kpi-change positive" id="aim-price-change">+4.2% wkly</span>
+            <span class="aim-kpi-change positive" id="aim-price-change"
+              >+4.2% wkly</span
+            >
           </div>
           <div class="aim-kpi-card">
             <span class="aim-kpi-label">3-Wk Forecast</span>
             <span class="aim-kpi-val" id="aim-forecast-price">৳1,980</span>
-            <span class="aim-kpi-change positive" id="aim-forecast-change">+7.6% proj.</span>
+            <span class="aim-kpi-change positive" id="aim-forecast-change"
+              >+7.6% proj.</span
+            >
           </div>
           <div class="aim-kpi-card">
             <span class="aim-kpi-label">Demand</span>
@@ -3812,7 +3940,9 @@
             <span class="aim-card-title">Price History &amp; Forecast</span>
             <span class="aim-card-badge">ML Projection</span>
           </div>
-          <div class="aim-chart-wrap"><canvas id="aim-price-chart"></canvas></div>
+          <div class="aim-chart-wrap">
+            <canvas id="aim-price-chart"></canvas>
+          </div>
         </div>
 
         <div class="aim-card">
@@ -3820,7 +3950,9 @@
             <span class="aim-card-title">Regional Demand Index</span>
             <span class="aim-card-badge">MATLAB Model</span>
           </div>
-          <div class="aim-chart-wrap"><canvas id="aim-region-chart"></canvas></div>
+          <div class="aim-chart-wrap">
+            <canvas id="aim-region-chart"></canvas>
+          </div>
         </div>
 
         <div class="aim-card">
@@ -3854,7 +3986,7 @@
           <div class="aim-season-chips" id="aim-seasons"></div>
         </div>
 
-        <div style="height:24px"></div>
+        <div style="height: 24px"></div>
       </div>
       <!-- end ai-market -->
 
@@ -4018,7 +4150,11 @@
           </div>
           <span class="tab-label">Women</span>
         </button>
-        <button class="tab-item" id="tab-ai-market" onclick="switchTab('ai-market')">
+        <button
+          class="tab-item"
+          id="tab-ai-market"
+          onclick="switchTab('ai-market')"
+        >
           <div class="tab-icon">
             <span class="material-symbols-rounded">analytics</span>
           </div>
@@ -4830,6 +4966,13 @@
           .forEach((t) => t.classList.remove("active"));
         document.getElementById("screen-" + name).classList.add("active");
         document.getElementById("tab-" + name).classList.add("active");
+
+        // Re-render charts after screen becomes visible (Chart.js needs visible container)
+        if (name === "ai-market") {
+          requestAnimationFrame(() => renderAiMarketCharts());
+        } else if (name === "projects") {
+          requestAnimationFrame(() => renderInvestorViz());
+        }
       }
 
       // Filter chip toggle in marketplace
@@ -5025,14 +5168,34 @@
       let aimRiskChart = null;
 
       // Historical price multipliers (last 8 weeks, pre-current)
-      const AIM_HISTORY_MULT = [0.88, 0.90, 0.91, 0.93, 0.95, 0.96, 0.98, 1.00];
-      const AIM_LABELS = ['W-8','W-7','W-6','W-5','W-4','W-3','W-2','W-1','Now','W+1','W+2','W+3'];
-      const AIM_REGIONS = ['Dhaka','Chittagong','Rajshahi','Khulna','Sylhet','Mymensingh'];
+      const AIM_HISTORY_MULT = [0.88, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 1.0];
+      const AIM_LABELS = [
+        "W-8",
+        "W-7",
+        "W-6",
+        "W-5",
+        "W-4",
+        "W-3",
+        "W-2",
+        "W-1",
+        "Now",
+        "W+1",
+        "W+2",
+        "W+3",
+      ];
+      const AIM_REGIONS = [
+        "Dhaka",
+        "Chittagong",
+        "Rajshahi",
+        "Khulna",
+        "Sylhet",
+        "Mymensingh",
+      ];
       const AIM_REGION_BASE = [92, 86, 78, 70, 65, 80];
 
       function aimGetCrop() {
-        const s = document.getElementById('aim-crop-select');
-        return s ? s.value : 'paddy';
+        const s = document.getElementById("aim-crop-select");
+        return s ? s.value : "paddy";
       }
 
       function renderAiMarketCharts() {
@@ -5041,145 +5204,203 @@
         if (!d) return;
 
         // KPI row
-        document.getElementById('aim-current-price').textContent = '৳' + d.currentPrice.toLocaleString();
-        document.getElementById('aim-price-change').textContent = d.currentChange;
-        document.getElementById('aim-forecast-price').textContent = '৳' + d.forecastBase.toLocaleString();
-        document.getElementById('aim-forecast-change').textContent = d.forecastChange + ' proj.';
-        document.getElementById('aim-demand-val').textContent = d.demand;
-        document.getElementById('aim-demand-score').textContent = d.demandScore + '/100';
+        document.getElementById("aim-current-price").textContent =
+          "৳" + d.currentPrice.toLocaleString();
+        document.getElementById("aim-price-change").textContent =
+          d.currentChange;
+        document.getElementById("aim-forecast-price").textContent =
+          "৳" + d.forecastBase.toLocaleString();
+        document.getElementById("aim-forecast-change").textContent =
+          d.forecastChange + " proj.";
+        document.getElementById("aim-demand-val").textContent = d.demand;
+        document.getElementById("aim-demand-score").textContent =
+          d.demandScore + "/100";
 
         // ── Price chart ──────────────────────────────
-        const histPrices = AIM_HISTORY_MULT.map(m => Math.round(d.currentPrice * m));
-        const forecastPrices = d.forecast.map(f => f.price);
-        const allDataPoints = [...histPrices, ...forecastPrices];
-        const histData = [...histPrices, null, null, null];
-        const nowData = Array(8).fill(null);
-        nowData.push(d.currentPrice);
-        const foreData = Array(9).fill(null);
-        foreData.push(...forecastPrices);
+        const histPrices = AIM_HISTORY_MULT.map((m) =>
+          Math.round(d.currentPrice * m),
+        );
+        const forecastPrices = d.forecast.map((f) => f.price);
+        // histData: W-8…W-1 (8 pts), connect at Now, then null for W+1…W+3  → 12 items
+        const histData = [...histPrices, d.currentPrice, null, null, null];
+        // foreData: null for W-8…Now (9 nulls), then W+1…W+3 forecast → 12 items
+        const foreData = [...Array(9).fill(null), ...forecastPrices];
 
-        const pCtx = document.getElementById('aim-price-chart');
+        const pCtx = document.getElementById("aim-price-chart");
         if (!pCtx) return;
-        if (aimPriceChart) { aimPriceChart.destroy(); }
+        if (aimPriceChart) {
+          aimPriceChart.destroy();
+        }
         aimPriceChart = new Chart(pCtx, {
-          type: 'line',
+          type: "line",
           data: {
             labels: AIM_LABELS,
             datasets: [
               {
-                label: 'Historical',
+                label: "Historical",
                 data: histData,
-                borderColor: '#059669',
-                backgroundColor: 'rgba(5,150,105,0.12)',
+                borderColor: "#059669",
+                backgroundColor: "rgba(5,150,105,0.12)",
                 borderWidth: 2.5,
                 pointRadius: 3,
-                pointBackgroundColor: '#059669',
+                pointBackgroundColor: "#059669",
                 tension: 0.35,
                 fill: true,
               },
               {
-                label: 'Forecast',
+                label: "Forecast",
                 data: foreData,
-                borderColor: '#f59e0b',
-                backgroundColor: 'rgba(245,158,11,0.08)',
+                borderColor: "#f59e0b",
+                backgroundColor: "rgba(245,158,11,0.08)",
                 borderWidth: 2.5,
-                borderDash: [6,4],
+                borderDash: [6, 4],
                 pointRadius: 4,
-                pointBackgroundColor: '#f59e0b',
+                pointBackgroundColor: "#f59e0b",
                 tension: 0.35,
                 fill: false,
-              }
-            ]
+              },
+            ],
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
+            interaction: { mode: "index", intersect: false },
             plugins: {
-              legend: { display: true, position: 'bottom', labels: { font: { size: 10, family: 'Plus Jakarta Sans' }, boxWidth: 14, padding: 10 } },
-              tooltip: { backgroundColor: '#0f5238', titleFont: { size: 11 }, bodyFont: { size: 11 } }
+              legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                  font: { size: 10, family: "Plus Jakarta Sans" },
+                  boxWidth: 14,
+                  padding: 10,
+                },
+              },
+              tooltip: {
+                backgroundColor: "#0f5238",
+                titleFont: { size: 11 },
+                bodyFont: { size: 11 },
+              },
             },
             scales: {
-              x: { ticks: { font: { size: 9 }, color: '#9ca3af' }, grid: { color: 'rgba(0,0,0,0.04)' } },
+              x: {
+                ticks: { font: { size: 9 }, color: "#9ca3af" },
+                grid: { color: "rgba(0,0,0,0.04)" },
+              },
               y: {
-                ticks: { font: { size: 9 }, color: '#9ca3af', callback: v => '৳' + v.toLocaleString() },
-                grid: { color: 'rgba(0,0,0,0.04)' }
-              }
-            }
-          }
+                ticks: {
+                  font: { size: 9 },
+                  color: "#9ca3af",
+                  callback: (v) => "৳" + v.toLocaleString(),
+                },
+                grid: { color: "rgba(0,0,0,0.04)" },
+              },
+            },
+          },
         });
 
         // ── Regional demand bar chart ────────────────
-        const regionDemand = AIM_REGION_BASE.map(b => Math.round(b * (d.demandScore / 82)));
-        const rCtx = document.getElementById('aim-region-chart');
+        const regionDemand = AIM_REGION_BASE.map((b) =>
+          Math.round(b * (d.demandScore / 82)),
+        );
+        const rCtx = document.getElementById("aim-region-chart");
         if (!rCtx) return;
-        if (aimRegionChart) { aimRegionChart.destroy(); }
+        if (aimRegionChart) {
+          aimRegionChart.destroy();
+        }
         aimRegionChart = new Chart(rCtx, {
-          type: 'bar',
+          type: "bar",
           data: {
             labels: AIM_REGIONS,
-            datasets: [{
-              label: 'Demand Index',
-              data: regionDemand,
-              backgroundColor: [
-                'rgba(5,150,105,0.85)',
-                'rgba(5,150,105,0.70)',
-                'rgba(14,165,164,0.80)',
-                'rgba(37,99,235,0.70)',
-                'rgba(168,85,247,0.70)',
-                'rgba(245,158,11,0.80)'
-              ],
-              borderRadius: 6,
-              borderSkipped: false,
-            }]
+            datasets: [
+              {
+                label: "Demand Index",
+                data: regionDemand,
+                backgroundColor: [
+                  "rgba(5,150,105,0.85)",
+                  "rgba(5,150,105,0.70)",
+                  "rgba(14,165,164,0.80)",
+                  "rgba(37,99,235,0.70)",
+                  "rgba(168,85,247,0.70)",
+                  "rgba(245,158,11,0.80)",
+                ],
+                borderRadius: 6,
+                borderSkipped: false,
+              },
+            ],
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
               legend: { display: false },
-              tooltip: { backgroundColor: '#0f5238', titleFont: { size: 11 }, bodyFont: { size: 11 } }
+              tooltip: {
+                backgroundColor: "#0f5238",
+                titleFont: { size: 11 },
+                bodyFont: { size: 11 },
+              },
             },
             scales: {
-              x: { ticks: { font: { size: 9 }, color: '#9ca3af' }, grid: { display: false } },
-              y: { ticks: { font: { size: 9 }, color: '#9ca3af' }, grid: { color: 'rgba(0,0,0,0.04)' }, min: 0, max: 100 }
-            }
-          }
+              x: {
+                ticks: { font: { size: 9 }, color: "#9ca3af" },
+                grid: { display: false },
+              },
+              y: {
+                ticks: { font: { size: 9 }, color: "#9ca3af" },
+                grid: { color: "rgba(0,0,0,0.04)" },
+                min: 0,
+                max: 100,
+              },
+            },
+          },
         });
 
         // ── Risk gauge (doughnut) ────────────────────
         const riskScore = d.riskScore;
-        const riskColor = riskScore < 30 ? '#22c55e' : riskScore < 55 ? '#f59e0b' : '#ef4444';
-        const gCtx = document.getElementById('aim-risk-gauge');
+        const riskColor =
+          riskScore < 30 ? "#22c55e" : riskScore < 55 ? "#f59e0b" : "#ef4444";
+        const gCtx = document.getElementById("aim-risk-gauge");
         if (!gCtx) return;
-        if (aimRiskChart) { aimRiskChart.destroy(); }
+        if (aimRiskChart) {
+          aimRiskChart.destroy();
+        }
         aimRiskChart = new Chart(gCtx, {
-          type: 'doughnut',
+          type: "doughnut",
           data: {
-            datasets: [{
-              data: [riskScore, 100 - riskScore],
-              backgroundColor: [riskColor, '#f3f4f6'],
-              borderWidth: 0,
-              circumference: 270,
-              rotation: -135,
-            }]
+            datasets: [
+              {
+                data: [riskScore, 100 - riskScore],
+                backgroundColor: [riskColor, "#f3f4f6"],
+                borderWidth: 0,
+                circumference: 270,
+                rotation: -135,
+              },
+            ],
           },
           options: {
             responsive: false,
-            cutout: '72%',
-            plugins: { legend: { display: false }, tooltip: { enabled: false } }
-          }
+            cutout: "72%",
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false },
+            },
+          },
         });
-        document.getElementById('aim-risk-score-num').textContent = riskScore;
-        document.getElementById('aim-risk-badge').textContent =
-          riskScore < 30 ? 'Low Risk' : riskScore < 55 ? 'Medium Risk' : 'High Risk';
-        document.getElementById('aim-risk-badge').style.background =
-          riskScore < 30 ? '#dcfce7' : riskScore < 55 ? '#fef9c3' : '#fee2e2';
-        document.getElementById('aim-risk-badge').style.color =
-          riskScore < 30 ? '#166534' : riskScore < 55 ? '#713f12' : '#991b1b';
+        document.getElementById("aim-risk-score-num").textContent = riskScore;
+        document.getElementById("aim-risk-badge").textContent =
+          riskScore < 30
+            ? "Low Risk"
+            : riskScore < 55
+              ? "Medium Risk"
+              : "High Risk";
+        document.getElementById("aim-risk-badge").style.background =
+          riskScore < 30 ? "#dcfce7" : riskScore < 55 ? "#fef9c3" : "#fee2e2";
+        document.getElementById("aim-risk-badge").style.color =
+          riskScore < 30 ? "#166534" : riskScore < 55 ? "#713f12" : "#991b1b";
 
         // Risk bars
-        document.getElementById('aim-risk-bars').innerHTML = d.risks.map(r => `
+        document.getElementById("aim-risk-bars").innerHTML = d.risks
+          .map(
+            (r) => `
           <div class="aim-risk-bar-item">
             <div class="aim-risk-bar-label">
               <span>${r.title}</span><span style="color:${r.color};font-weight:700">${r.score}%</span>
@@ -5188,10 +5409,14 @@
               <div class="aim-risk-bar-fill" style="width:${r.score}%;background:${r.color}"></div>
             </div>
           </div>
-        `).join('');
+        `,
+          )
+          .join("");
 
         // AI Signals
-        document.getElementById('aim-signals').innerHTML = d.signals.map(s => `
+        document.getElementById("aim-signals").innerHTML = d.signals
+          .map(
+            (s) => `
           <div class="aim-signal-item">
             <span class="aim-signal-pill ${s.tone}">${s.label.toUpperCase()}</span>
             <div class="aim-signal-body">
@@ -5200,15 +5425,19 @@
               <div class="aim-signal-conf">Confidence: ${s.confidence}%</div>
             </div>
           </div>
-        `).join('');
+        `,
+          )
+          .join("");
 
         // Seasonality
-        document.getElementById('aim-seasons').innerHTML = d.seasons.map(s =>
-          `<div class="aim-season-chip">${s}</div>`
-        ).join('');
+        document.getElementById("aim-seasons").innerHTML = d.seasons
+          .map((s) => `<div class="aim-season-chip">${s}</div>`)
+          .join("");
       }
 
-      document.getElementById('aim-crop-select').addEventListener('change', renderAiMarketCharts);
+      document
+        .getElementById("aim-crop-select")
+        .addEventListener("change", renderAiMarketCharts);
       renderAiMarketCharts();
     </script>
   </body>
