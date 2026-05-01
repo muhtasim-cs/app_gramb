@@ -353,6 +353,7 @@
         font:
           700 11px "Plus Jakarta Sans",
           sans-serif;
+        cursor: pointer;
       }
 
       .halal-card {
@@ -408,7 +409,6 @@
         border-radius: 14px;
         cursor: pointer;
         transition: transform 150ms;
-        active: scale(0.95);
       }
       .btn-primary:active {
         transform: scale(0.95);
@@ -1129,6 +1129,223 @@
         border-top: 1px solid #f8fafc;
       }
 
+      /* ─── AUTH OVERLAY ─── */
+      .auth-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(7, 13, 10, 0.5);
+        backdrop-filter: blur(6px);
+        z-index: 400;
+        display: none;
+        align-items: flex-end;
+      }
+      .auth-overlay.active {
+        display: flex;
+      }
+      .auth-sheet {
+        width: 100%;
+        background: #fff;
+        border-radius: 24px 24px 0 0;
+        padding: 16px 16px calc(16px + var(--safe-bottom));
+        box-shadow: 0 -12px 28px rgba(0, 0, 0, 0.2);
+        max-height: 86%;
+        overflow-y: auto;
+      }
+      .auth-grab {
+        width: 42px;
+        height: 5px;
+        border-radius: 999px;
+        background: #d1d5db;
+        margin: 0 auto 10px;
+      }
+      .auth-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .auth-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .auth-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: none;
+        background: #f3f4f6;
+        color: #374151;
+        cursor: pointer;
+      }
+      .auth-tabs {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .auth-tab {
+        padding: 10px;
+        border-radius: 12px;
+        border: 1.5px solid #d1d5db;
+        background: #fff;
+        font:
+          700 12px "Plus Jakarta Sans",
+          sans-serif;
+        color: #4b5563;
+        cursor: pointer;
+      }
+      .auth-tab.active {
+        border-color: var(--green-900);
+        color: var(--green-900);
+        background: var(--green-50);
+      }
+      .auth-msg {
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 9px 10px;
+        font-size: 11px;
+        line-height: 1.4;
+        display: none;
+      }
+      .auth-msg.show {
+        display: block;
+      }
+      .auth-msg.info {
+        background: #e0f2fe;
+        color: #0369a1;
+      }
+      .auth-msg.ok {
+        background: #dcfce7;
+        color: #166534;
+      }
+      .auth-msg.error {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .auth-form {
+        margin-top: 12px;
+        display: grid;
+        gap: 10px;
+      }
+      .auth-field {
+        display: grid;
+        gap: 5px;
+      }
+      .auth-field label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #4b5563;
+      }
+      .auth-field input {
+        width: 100%;
+        height: 42px;
+        border-radius: 12px;
+        border: 1.5px solid #d1d5db;
+        padding: 0 12px;
+        font:
+          600 13px "Plus Jakarta Sans",
+          sans-serif;
+        color: #111827;
+        outline: none;
+      }
+      .auth-field input:focus {
+        border-color: var(--green-700);
+        box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.12);
+      }
+      .auth-submit {
+        margin-top: 4px;
+        height: 44px;
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        background: var(--green-900);
+        font:
+          700 13px "Plus Jakarta Sans",
+          sans-serif;
+        cursor: pointer;
+      }
+      .otp-wrap {
+        margin-top: 12px;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 10px;
+        display: none;
+      }
+      .otp-wrap.active {
+        display: block;
+      }
+      .otp-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 7px;
+      }
+      .otp-title {
+        font-size: 12px;
+        font-weight: 800;
+        color: #111827;
+      }
+      .otp-hint {
+        font-size: 10px;
+        color: #6b7280;
+      }
+      .otp-row {
+        display: flex;
+        gap: 8px;
+      }
+      .otp-row input {
+        flex: 1;
+        height: 40px;
+        border-radius: 10px;
+        border: 1.5px solid #d1d5db;
+        padding: 0 10px;
+        font:
+          700 16px "Plus Jakarta Sans",
+          sans-serif;
+        letter-spacing: 0.18em;
+      }
+      .otp-row button {
+        width: 108px;
+        border: none;
+        border-radius: 10px;
+        background: #1f2937;
+        color: #fff;
+        font:
+          700 11px "Plus Jakarta Sans",
+          sans-serif;
+        cursor: pointer;
+      }
+      .otp-actions {
+        margin-top: 8px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .otp-resend {
+        border: none;
+        background: transparent;
+        color: var(--green-800);
+        font:
+          700 11px "Plus Jakarta Sans",
+          sans-serif;
+        cursor: pointer;
+      }
+      .verified-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        margin-left: 7px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .verified-chip .material-symbols-rounded {
+        font-size: 12px;
+      }
+
       /* Page transitions */
       .screen {
         animation: fadeUp 300ms ease both;
@@ -1179,7 +1396,7 @@
             <span class="material-symbols-rounded">search</span>
             <input type="search" placeholder="Search" />
           </label>
-          <button class="signup-chip">Sign Up</button>
+          <button class="signup-chip" id="auth-launch-btn">Sign Up</button>
         </div>
 
         <div class="home-hero">
@@ -1882,8 +2099,16 @@
               alt="Profile"
             />
           </div>
-          <div class="profile-name">Anwar Hossain</div>
-          <div class="profile-handle">@anwar.investor · Dhaka</div>
+          <div class="profile-name" id="profile-name-text">
+            Anwar Hossain
+            <span class="verified-chip" id="profile-verified-chip">
+              <span class="material-symbols-rounded">verified</span>
+              Verified
+            </span>
+          </div>
+          <div class="profile-handle" id="profile-handle-text">
+            @anwar.investor · Dhaka
+          </div>
           <div class="profile-stats" style="width: 100%; margin-top: 20px">
             <div class="pstat">
               <div class="pstat-val">12</div>
@@ -1935,6 +2160,21 @@
               <span class="material-symbols-rounded">chevron_right</span>
             </div>
           </div>
+          <div class="menu-item" id="verification-menu-row">
+            <div class="menu-icon" style="background: #dcfce7">
+              <span
+                class="material-symbols-rounded"
+                style="color: var(--green-800)"
+                >verified_user</span
+              >
+            </div>
+            <span class="menu-label" id="verify-status-label"
+              >Verification: Completed</span
+            >
+            <div class="menu-arrow">
+              <span class="material-symbols-rounded">chevron_right</span>
+            </div>
+          </div>
           <div class="menu-item">
             <div class="menu-icon" style="background: #f3e8ff">
               <span class="material-symbols-rounded" style="color: #7e22ce"
@@ -1957,7 +2197,7 @@
               <span class="material-symbols-rounded">chevron_right</span>
             </div>
           </div>
-          <div class="menu-item">
+          <div class="menu-item" id="logout-item">
             <div class="menu-icon" style="background: #fee2e2">
               <span class="material-symbols-rounded" style="color: #dc2626"
                 >logout</span
@@ -2015,11 +2255,298 @@
           <span class="tab-label">Profile</span>
         </button>
       </nav>
+
+      <div class="auth-overlay" id="auth-overlay">
+        <div class="auth-sheet" role="dialog" aria-modal="true">
+          <div class="auth-grab"></div>
+          <div class="auth-head">
+            <h2 class="auth-title" id="auth-title">Create Account</h2>
+            <button class="auth-close" id="auth-close" aria-label="Close">
+              <span class="material-symbols-rounded">close</span>
+            </button>
+          </div>
+
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="auth-tab-signup">Sign Up</button>
+            <button class="auth-tab" id="auth-tab-login">Login</button>
+          </div>
+
+          <div class="auth-msg" id="auth-msg"></div>
+
+          <form class="auth-form" id="auth-form" novalidate>
+            <div class="auth-field" id="name-field">
+              <label for="auth-name">Full Name</label>
+              <input id="auth-name" autocomplete="name" placeholder="Your full name" />
+            </div>
+            <div class="auth-field">
+              <label for="auth-email">Email</label>
+              <input
+                id="auth-email"
+                type="email"
+                autocomplete="email"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="auth-field" id="phone-field">
+              <label for="auth-phone">Phone</label>
+              <input
+                id="auth-phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="01XXXXXXXXX"
+              />
+            </div>
+            <div class="auth-field">
+              <label for="auth-password">Password</label>
+              <input
+                id="auth-password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="At least 6 characters"
+              />
+            </div>
+            <button class="auth-submit" type="submit" id="auth-submit-btn">
+              Create Account
+            </button>
+          </form>
+
+          <div class="otp-wrap" id="otp-wrap">
+            <div class="otp-top">
+              <div class="otp-title">Phone Verification</div>
+              <div class="otp-hint">6-digit code</div>
+            </div>
+            <div class="otp-row">
+              <input id="otp-input" inputmode="numeric" maxlength="6" placeholder="123456" />
+              <button id="otp-verify-btn" type="button">Verify</button>
+            </div>
+            <div class="otp-actions">
+              <button class="otp-resend" id="otp-resend-btn" type="button">
+                Resend Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- end phone-shell -->
 
     <script>
+      const AUTH_STORAGE_KEY = "gramBondhonAuthV1";
+
+      const defaultProfile = {
+        name: "Guest User",
+        handle: "Sign in to access full features",
+      };
+
+      const authOverlay = document.getElementById("auth-overlay");
+      const authLaunchBtn = document.getElementById("auth-launch-btn");
+      const authCloseBtn = document.getElementById("auth-close");
+      const authTitle = document.getElementById("auth-title");
+      const authMsg = document.getElementById("auth-msg");
+      const authForm = document.getElementById("auth-form");
+      const authSubmitBtn = document.getElementById("auth-submit-btn");
+      const authTabSignup = document.getElementById("auth-tab-signup");
+      const authTabLogin = document.getElementById("auth-tab-login");
+      const nameField = document.getElementById("name-field");
+      const phoneField = document.getElementById("phone-field");
+      const authNameInput = document.getElementById("auth-name");
+      const authEmailInput = document.getElementById("auth-email");
+      const authPhoneInput = document.getElementById("auth-phone");
+      const authPasswordInput = document.getElementById("auth-password");
+      const otpWrap = document.getElementById("otp-wrap");
+      const otpInput = document.getElementById("otp-input");
+      const otpVerifyBtn = document.getElementById("otp-verify-btn");
+      const otpResendBtn = document.getElementById("otp-resend-btn");
+
+      const profileNameText = document.getElementById("profile-name-text");
+      const profileHandleText = document.getElementById("profile-handle-text");
+      const profileVerifiedChip = document.getElementById("profile-verified-chip");
+      const verificationMenuRow = document.getElementById("verification-menu-row");
+      const verifyStatusLabel = document.getElementById("verify-status-label");
+      const logoutItem = document.getElementById("logout-item");
+
+      let authMode = "signup";
+      let authState = loadAuthState();
+
+      function loadAuthState() {
+        try {
+          const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+          if (!raw) {
+            return {
+              users: {},
+              currentUserEmail: null,
+              pendingVerification: null,
+            };
+          }
+          const parsed = JSON.parse(raw);
+          return {
+            users: parsed.users || {},
+            currentUserEmail: parsed.currentUserEmail || null,
+            pendingVerification: parsed.pendingVerification || null,
+          };
+        } catch {
+          return {
+            users: {},
+            currentUserEmail: null,
+            pendingVerification: null,
+          };
+        }
+      }
+
+      function saveAuthState() {
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(authState));
+      }
+
+      function currentUser() {
+        if (!authState.currentUserEmail) {
+          return null;
+        }
+        return authState.users[authState.currentUserEmail] || null;
+      }
+
+      function normalizeEmail(email) {
+        return email.trim().toLowerCase();
+      }
+
+      function setAuthMessage(text, tone = "info") {
+        authMsg.textContent = text;
+        authMsg.className = "auth-msg show " + tone;
+      }
+
+      function clearAuthMessage() {
+        authMsg.textContent = "";
+        authMsg.className = "auth-msg";
+      }
+
+      function applyAuthMode(mode) {
+        authMode = mode;
+        const signupMode = mode === "signup";
+
+        authTabSignup.classList.toggle("active", signupMode);
+        authTabLogin.classList.toggle("active", !signupMode);
+        nameField.style.display = signupMode ? "grid" : "none";
+        phoneField.style.display = signupMode ? "grid" : "none";
+        authTitle.textContent = signupMode ? "Create Account" : "Welcome Back";
+        authSubmitBtn.textContent = signupMode ? "Create Account" : "Login";
+
+        otpWrap.classList.remove("active");
+        otpInput.value = "";
+        clearAuthMessage();
+      }
+
+      function openAuth(mode = "signup") {
+        applyAuthMode(mode);
+        authOverlay.classList.add("active");
+      }
+
+      function closeAuth() {
+        authOverlay.classList.remove("active");
+        otpInput.value = "";
+      }
+
+      function startVerification(email, reasonText) {
+        const otp = String(Math.floor(100000 + Math.random() * 900000));
+        authState.pendingVerification = {
+          email,
+          otp,
+          expiresAt: Date.now() + 5 * 60 * 1000,
+        };
+        saveAuthState();
+
+        otpWrap.classList.add("active");
+        setAuthMessage(
+          reasonText + " Demo OTP code: " + otp + " (valid for 5 minutes).",
+          "info"
+        );
+      }
+
+      function completeVerification() {
+        const pending = authState.pendingVerification;
+        const code = otpInput.value.trim();
+
+        if (!pending) {
+          setAuthMessage("No verification request found. Please log in again.", "error");
+          return;
+        }
+        if (Date.now() > pending.expiresAt) {
+          setAuthMessage("Code expired. Tap Resend Code to get a new code.", "error");
+          return;
+        }
+        if (code !== pending.otp) {
+          setAuthMessage("Incorrect code. Please try again.", "error");
+          return;
+        }
+
+        const user = authState.users[pending.email];
+        if (!user) {
+          setAuthMessage("User record not found. Please sign up again.", "error");
+          return;
+        }
+
+        user.verified = true;
+        authState.currentUserEmail = pending.email;
+        authState.pendingVerification = null;
+        saveAuthState();
+
+        setAuthMessage("Verification complete. You are now logged in.", "ok");
+        otpWrap.classList.remove("active");
+        otpInput.value = "";
+        refreshAuthUI();
+        setTimeout(() => {
+          closeAuth();
+          switchTab("profile");
+        }, 500);
+      }
+
+      function refreshAuthUI() {
+        const user = currentUser();
+        const isLoggedIn = Boolean(user);
+
+        if (isLoggedIn) {
+          const handle =
+            "@" +
+            user.email.split("@")[0].replace(/[^a-zA-Z0-9._-]/g, "") +
+            " · " +
+            (user.phone || "Bangladesh");
+
+          profileNameText.firstChild.textContent = user.fullName + " ";
+          profileHandleText.textContent = handle;
+
+          profileVerifiedChip.style.display = user.verified ? "inline-flex" : "none";
+          verificationMenuRow.style.display = "flex";
+          verifyStatusLabel.textContent = user.verified
+            ? "Verification: Completed"
+            : "Verification: Pending";
+          authLaunchBtn.textContent = "Account";
+        } else {
+          profileNameText.firstChild.textContent = defaultProfile.name + " ";
+          profileHandleText.textContent = defaultProfile.handle;
+          profileVerifiedChip.style.display = "none";
+          verificationMenuRow.style.display = "none";
+          verifyStatusLabel.textContent = "Verification: Pending";
+          authLaunchBtn.textContent = "Sign Up";
+        }
+      }
+
+      function requireAuth(actionLabel, successCallback) {
+        if (!currentUser()) {
+          openAuth("login");
+          setAuthMessage("Please login to " + actionLabel + ".", "info");
+          return false;
+        }
+        if (typeof successCallback === "function") {
+          successCallback();
+        }
+        return true;
+      }
+
       function switchTab(name) {
+        if ((name === "projects" || name === "profile") && !currentUser()) {
+          openAuth("login");
+          setAuthMessage("Please login to access this section.", "info");
+          return;
+        }
+
         document
           .querySelectorAll(".screen")
           .forEach((s) => s.classList.remove("active"));
@@ -2040,6 +2567,136 @@
         });
       });
 
+      authTabSignup.addEventListener("click", () => applyAuthMode("signup"));
+      authTabLogin.addEventListener("click", () => applyAuthMode("login"));
+      authLaunchBtn.addEventListener("click", () => {
+        if (currentUser()) {
+          switchTab("profile");
+        } else {
+          openAuth("signup");
+        }
+      });
+      authCloseBtn.addEventListener("click", closeAuth);
+      authOverlay.addEventListener("click", (event) => {
+        if (event.target === authOverlay) {
+          closeAuth();
+        }
+      });
+
+      authForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const email = normalizeEmail(authEmailInput.value);
+        const password = authPasswordInput.value;
+
+        if (!email || !email.includes("@")) {
+          setAuthMessage("Enter a valid email address.", "error");
+          return;
+        }
+        if (!password || password.length < 6) {
+          setAuthMessage("Password must be at least 6 characters.", "error");
+          return;
+        }
+
+        if (authMode === "signup") {
+          const fullName = authNameInput.value.trim();
+          const phone = authPhoneInput.value.trim();
+
+          if (!fullName) {
+            setAuthMessage("Please enter your full name.", "error");
+            return;
+          }
+          if (!phone || phone.length < 8) {
+            setAuthMessage("Please enter a valid phone number.", "error");
+            return;
+          }
+          if (authState.users[email]) {
+            setAuthMessage("This email is already registered. Please login.", "error");
+            applyAuthMode("login");
+            authEmailInput.value = email;
+            return;
+          }
+
+          authState.users[email] = {
+            fullName,
+            email,
+            phone,
+            password,
+            verified: false,
+            createdAt: Date.now(),
+          };
+          saveAuthState();
+          startVerification(
+            email,
+            "Account created. Verify your phone number to activate your account."
+          );
+          return;
+        }
+
+        const user = authState.users[email];
+        if (!user || user.password !== password) {
+          setAuthMessage("Invalid email or password.", "error");
+          return;
+        }
+
+        if (!user.verified) {
+          startVerification(
+            email,
+            "Your account is not verified yet. Complete verification to continue."
+          );
+          return;
+        }
+
+        authState.currentUserEmail = email;
+        saveAuthState();
+        setAuthMessage("Login successful.", "ok");
+        refreshAuthUI();
+        setTimeout(() => {
+          closeAuth();
+          switchTab("profile");
+        }, 350);
+      });
+
+      otpVerifyBtn.addEventListener("click", completeVerification);
+      otpResendBtn.addEventListener("click", () => {
+        const pending = authState.pendingVerification;
+        if (!pending || !pending.email) {
+          setAuthMessage("No account awaiting verification.", "error");
+          return;
+        }
+        startVerification(pending.email, "A new verification code has been sent.");
+      });
+
+      otpInput.addEventListener("input", () => {
+        otpInput.value = otpInput.value.replace(/\D/g, "").slice(0, 6);
+      });
+
+      document.querySelectorAll(".btn-invest").forEach((button) => {
+        button.addEventListener("click", () => {
+          requireAuth("invest in projects", () => {
+            alert("Investment flow is now unlocked for your account.");
+          });
+        });
+      });
+
+      document.querySelectorAll(".btn-primary, .btn-secondary").forEach((button) => {
+        button.addEventListener("click", () => {
+          requireAuth("continue", () => {
+            alert("You are authenticated. Continue to next onboarding step.");
+          });
+        });
+      });
+
+      logoutItem.addEventListener("click", () => {
+        if (!currentUser()) {
+          return;
+        }
+        authState.currentUserEmail = null;
+        saveAuthState();
+        refreshAuthUI();
+        switchTab("home");
+        setAuthMessage("Logged out successfully.", "ok");
+      });
+
       // Home hero slideshow
       const heroSlides = document.querySelectorAll(".hero-slide");
       const heroDots = document.querySelectorAll(".hero-dot");
@@ -2058,6 +2715,8 @@
           setHeroSlide(heroIndex);
         }, 4000);
       }
+
+      refreshAuthUI();
     </script>
   </body>
 </html>
